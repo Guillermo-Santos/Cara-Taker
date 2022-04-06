@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Care_Taker.Views.SettingsPage"
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels"
+             Title="{Binding Title}"
+             Visual="Material">
+
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Frame BorderColor="gray" FlowDirection="MatchParent" Padding="1" Margin="10">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" BackgroundColor="Aqua">
+                        <Label Text="Temas" FontSize="Medium" 
+                        HorizontalOptions="StartAndExpand" />
+                    </Grid>
+                    <StackLayout Grid.Row="1">
+                        <Label Text="Color" FontSize="Body" HorizontalOptions="StartAndExpand"/>
+                        <Picker SelectedIndex="0" SelectedItem="0">
+                            <Picker.Items>
+                                <x:String>Claro</x:String>
+                                <x:String>Oscuro</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Tamaño de letra" FontSize="Body" HorizontalOptions="StartAndExpand"/>
+                        <Picker SelectedIndex="0">
+                            <Picker.Items>
+                                <x:String>Pequeña</x:String>
+                                <x:String>Mediana</x:String>
+                                <x:String>Grande</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame BorderColor="gray" FlowDirection="MatchParent" Padding="1" Margin="10" MinimumHeightRequest="100">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" BackgroundColor="Aqua">
+                        <Label Text="Configuracion de seguimiento" FontSize="Medium" 
+                        HorizontalOptions="StartAndExpand" />
+                    </Grid>
+                    <StackLayout Grid.Row="1">
+                        <Label Text="Modo de seguimiento" FontSize="Body" HorizontalOptions="StartAndExpand"/>
+                        <Picker SelectedIndex="1" >
+                            <Picker.Items>
+                                <x:String>isAlive</x:String>
+                                <x:String>KeepAlive</x:String>
+                                <x:String>Limited</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Minimo de guardado" FontSize="Body" HorizontalOptions="StartAndExpand"/>
+                        <Entry ></Entry>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

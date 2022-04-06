@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Care_Taker.Views.NewCitaPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Paciente"/>
+            <Entry Placeholder="Medico"/>
+            <Label Text="Tipo de cita"/>
+            <Picker></Picker>
+            <Label Text="Fecha"/>
+            <DatePicker/>
+            <Entry Placeholder="Duracion"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Guardar"/>
+                <Button Text="Limpiar"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ViewModels="clr-namespace:Care_Taker.ViewModels"
+             x:Class="Care_Taker.Views.NewItemPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Item"
+             ios:Page.UseSafeArea="true"
+             Visual="Material">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Spacing="3" Padding="15">
+            <Label Text="Paciente" FontSize="Medium" />
+            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
+                    <Label Text="Fecha de ingreso:" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                    <DatePicker/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Tipo de sangre" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                    <Entry></Entry>
+                    <!--TimePicker/-->
+                </StackLayout>
+            </StackLayout>
+            <Entry Placeholder="Telefono"/>
+            <Entry Placeholder="Email"/>
+            <Label Text="Historial" FontSize="Medium" />
+
+            <Frame BorderColor="gray" FlowDirection="MatchParent" Padding="5" Margin="5">
+                <StackLayout>
+                    <Label Text="Cita" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                    <Label Text="Doctor: Luis Jose    Fecha: 2/20/2022 13:45" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                    <Label Text="Cita" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                    <Label Text="Doctor: Luis Jose    Fecha: 2/22/2022 10:45" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                </StackLayout>
+            </Frame>
+            <!--Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" /-->
+            <!--StackLayout Orientation="Horizontal">
+                <Button Text="Cancelar" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Guardar" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout-->
+        </StackLayout>
+    </Grid>
+</ContentPage>

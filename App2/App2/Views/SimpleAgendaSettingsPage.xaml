@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels"
+             x:Class="Care_Taker.Views.SimpleAgendaSettingsPage"
+             Title="Configuracion de vista simple"
+             Visual="Material">
+
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Numero de semanas a mostrar"/>
+            <Slider x:Name="ssli" Minimum="1" Maximum="6"/>
+            <Label Text="Modo de presentacion de citas"/>
+            <Picker/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Care_Taker.Views.DetailedAgendaPage"
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels" 
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:CalendarViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+        <syncfusion:SfSchedule x:Name="Calendar"
+                               DataSource="{Binding ScheduleAppointments}"
+                               ScheduleView="DayView"
+                               ShowAppointmentsInline="True">
+            
+            
+        </syncfusion:SfSchedule>
+    </ContentPage.Content>
+</ContentPage>
