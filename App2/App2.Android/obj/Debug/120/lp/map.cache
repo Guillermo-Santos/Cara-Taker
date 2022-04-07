@@ -1,4 +1,5 @@
 FormsViewGroup.dll
+SQLitePCLRaw.lib.e_sqlite3.android.dll
 Syncfusion.Core.XForms.Android.dll
 Syncfusion.SfBusyIndicator.Android.dll
 Syncfusion.SfBusyIndicator.XForms.Android.dll
@@ -112,4 +113,3 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.browser.browser.aar
-SQLitePCLRaw.lib.e_sqlite3.android.dll

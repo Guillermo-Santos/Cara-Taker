@@ -1,10 +1,15 @@
 package mono;
 public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
-		/* We need to ensure that "App2.Android.dll" comes first in this list. */
-		"App2.Android.dll",
+		/* We need to ensure that "Care_Taker.Android.dll" comes first in this list. */
+		"Care_Taker.Android.dll",
 		"Care_Taker.dll",
 		"FormsViewGroup.dll",
+		"SQLite-net.dll",
+		"SQLitePCLRaw.batteries_v2.dll",
+		"SQLitePCLRaw.core.dll",
+		"SQLitePCLRaw.lib.e_sqlite3.android.dll",
+		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"Syncfusion.Compression.Portable.dll",
 		"Syncfusion.Core.XForms.Android.dll",
 		"Syncfusion.Core.XForms.dll",

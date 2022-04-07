@@ -1,9 +1,6 @@
-Care_Taker.Droid.MainActivity, App2.Android;crc643ade5b11a08e783c.MainActivity
-Care_Taker.Droid.MainActivity;crc643ade5b11a08e783c.MainActivity
-care_taker.droid.MainActivity;crc643ade5b11a08e783c.MainActivity
-App2.Droid.AgendaView, App2.Android;crc642b789bcd66d3f4e3.AgendaView
-App2.Droid.AgendaView;crc642b789bcd66d3f4e3.AgendaView
-app2.droid.AgendaView;crc642b789bcd66d3f4e3.AgendaView
+Care_Taker.Droid.MainActivity, Care_Taker.Android;crc641c8d3d3d9be17b04.MainActivity
+Care_Taker.Droid.MainActivity;crc641c8d3d3d9be17b04.MainActivity
+care_taker.droid.MainActivity;crc641c8d3d3d9be17b04.MainActivity
 Syncfusion.XForms.Android.Graphics.SfGradientViewRenderer, Syncfusion.Core.XForms.Android;crc640879981a986d658b.SfGradientViewRenderer
 Syncfusion.XForms.Android.Graphics.SfGradientViewRenderer;crc640879981a986d658b.SfGradientViewRenderer
 syncfusion.xforms.android.graphics.SfGradientViewRenderer;crc640879981a986d658b.SfGradientViewRenderer
