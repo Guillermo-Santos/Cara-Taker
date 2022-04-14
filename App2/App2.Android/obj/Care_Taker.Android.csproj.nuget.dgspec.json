@@ -42,25 +42,29 @@
       "frameworks": {
         "monoandroid12.0": {
           "dependencies": {
+            "SQLiteNetExtensions": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Syncfusion.Xamarin.Compression": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.Pdf": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.SfCalendar": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.SfPdfViewer": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.SfSchedule": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -128,25 +132,29 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "SQLiteNetExtensions": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Syncfusion.Xamarin.Compression": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.Pdf": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.SfCalendar": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.SfPdfViewer": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Syncfusion.Xamarin.SfSchedule": {
               "target": "Package",
-              "version": "[19.4.0.56, )"
+              "version": "[20.1.0.47, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -171,7 +179,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

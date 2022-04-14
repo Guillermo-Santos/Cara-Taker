@@ -1,4 +1,6 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System.Collections.Generic;
 
 namespace Care_Taker.Models
 {
@@ -9,5 +11,8 @@ namespace Care_Taker.Models
         public int CodDia { get; set; }
         [MaxLength(100)]
         public string Descripcion { get; set; }
+
+        [OneToMany]
+        public List<Turno> Turnos { get; set; }
     }
 }

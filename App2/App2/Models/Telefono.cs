@@ -1,4 +1,6 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System.Collections.Generic;
 
 namespace Care_Taker.Models
 {
@@ -10,5 +12,10 @@ namespace Care_Taker.Models
         [MaxLength(100)]
         public string telefono { get; set; }
         public int CodTpTf { get; set; }
+
+        [ManyToOne]
+        public Tipo_Telefono Tipo { get; set; }
+        [OneToMany]
+        public List<Telefono_Persona> Personas { get; set; }
     }
 }

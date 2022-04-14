@@ -1,5 +1,7 @@
 ﻿using System;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System.Collections.Generic;
 
 namespace Care_Taker.Models
 {
@@ -13,6 +15,18 @@ namespace Care_Taker.Models
         [MaxLength(100)]
         public string Apellidos { get; set; }
         public DateTime FecNaci { get; set; }
+        [ForeignKey(typeof(Tipo_Sexo))]
         public int CodSexo { get; set; }
+
+        [ManyToOne]
+        public Tipo_Sexo TipoSexo { get; set; }
+        [OneToOne]
+        public Empleado Empleado { get; set; }
+        [OneToOne]
+        public Paciente Paciente { get; set; }
+        [OneToMany]
+        public List<Email> Emails { get; set; }
+        [OneToMany]
+        public List<Telefono_Persona> Telefonos { get; set; }
     }
 }
