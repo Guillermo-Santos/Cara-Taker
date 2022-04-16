@@ -14,7 +14,7 @@ namespace Care_Taker.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.2.0.155")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.2.4.160")]
 	public partial class Resource
 	{
 		
@@ -242,11 +242,11 @@ namespace Care_Taker.Droid
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.label_font_size = global::Care_Taker.Droid.Resource.Dimension.label_font_size;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.thumb_size = global::Care_Taker.Droid.Resource.Dimension.thumb_size;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.tick_size = global::Care_Taker.Droid.Resource.Dimension.tick_size;
+			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.tooltip_textsize = global::Care_Taker.Droid.Resource.Dimension.tooltip_textsize;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.tool_bottom = global::Care_Taker.Droid.Resource.Dimension.tool_bottom;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.tool_left = global::Care_Taker.Droid.Resource.Dimension.tool_left;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.tool_right = global::Care_Taker.Droid.Resource.Dimension.tool_right;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.tool_top = global::Care_Taker.Droid.Resource.Dimension.tool_top;
-			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.tooltip_textsize = global::Care_Taker.Droid.Resource.Dimension.tooltip_textsize;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Dimension.track_size = global::Care_Taker.Droid.Resource.Dimension.track_size;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Id.bottomRight = global::Care_Taker.Droid.Resource.Id.bottomRight;
 			global::Com.Syncfusion.Sfrangeslider.Resource.Id.horizontal = global::Care_Taker.Droid.Resource.Id.horizontal;
@@ -289,11 +289,11 @@ namespace Care_Taker.Droid
 			global::Com.Syncfusion.Schedule.Resource.Id.monthView = global::Care_Taker.Droid.Resource.Id.monthView;
 			global::Com.Syncfusion.Schedule.Resource.Id.weekView = global::Care_Taker.Droid.Resource.Id.weekView;
 			global::Com.Syncfusion.Schedule.Resource.Id.workWeekView = global::Care_Taker.Droid.Resource.Id.workWeekView;
+			global::Com.Syncfusion.Schedule.Resource.String.all_day = global::Care_Taker.Droid.Resource.String.all_day;
+			global::Com.Syncfusion.Schedule.Resource.String.library_name = global::Care_Taker.Droid.Resource.String.library_name;
 			global::Com.Syncfusion.Schedule.Resource.String.NoResources = global::Care_Taker.Droid.Resource.String.NoResources;
 			global::Com.Syncfusion.Schedule.Resource.String.NoSelectedDate = global::Care_Taker.Droid.Resource.String.NoSelectedDate;
 			global::Com.Syncfusion.Schedule.Resource.String.No_Appointments = global::Care_Taker.Droid.Resource.String.No_Appointments;
-			global::Com.Syncfusion.Schedule.Resource.String.all_day = global::Care_Taker.Droid.Resource.String.all_day;
-			global::Com.Syncfusion.Schedule.Resource.String.library_name = global::Care_Taker.Droid.Resource.String.library_name;
 			global::Com.Syncfusion.Schedule.Resource.Styleable.SfSchedule = global::Care_Taker.Droid.Resource.Styleable.SfSchedule;
 			global::Com.Syncfusion.Schedule.Resource.Styleable.SfSchedule_allowAppointmentDrag = global::Care_Taker.Droid.Resource.Styleable.SfSchedule_allowAppointmentDrag;
 			global::Com.Syncfusion.Schedule.Resource.Styleable.SfSchedule_enableNavigation = global::Care_Taker.Droid.Resource.Styleable.SfSchedule_enableNavigation;

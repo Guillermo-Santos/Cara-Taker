@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Xamarin.Forms;
+using Care_Taker.Services;
 
 namespace Care_Taker.ViewModels
 {

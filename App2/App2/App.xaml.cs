@@ -11,11 +11,13 @@ namespace Care_Taker
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<ViewService>();
             MainPage = new AppShell();
         }
 
         protected override void OnStart()
         {
+            base.OnStart();
         }
 
         protected override void OnSleep()

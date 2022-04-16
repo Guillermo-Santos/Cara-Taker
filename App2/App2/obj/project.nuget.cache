@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G9oUJmXKlJ5oVEd+PzFeo+EYvaKJ3SgXLKKcoImufnp4Ex+ySpbN84CXoQgsZjJUl6cMf9nY/UNqzewDFFF/mA==",
+  "dgSpecHash": "DVu0Mjpjp+xz2Jk/6VgC6Cmf1d4mg01wvbBfb57NBnP2QmEfuMeSbAEt+lwlBHYgxWk4n2z/Vm5a9E5YIH6Fiw==",
   "success": true,
   "projectFilePath": "D:\\Aplicaciones\\Microsoft Visual Studio\\VSProjects\\App2\\App2\\App2\\Care_Taker.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\santo\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.4\\sqlitepclraw.provider.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\santo\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.115.5\\stub.system.data.sqlite.core.netstandard.1.0.115.5.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\syncfusion.licensing\\20.1.0.47\\syncfusion.licensing.20.1.0.47.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\syncfusion.xamarin.compression\\20.1.0.47\\syncfusion.xamarin.compression.20.1.0.47.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\syncfusion.xamarin.core\\20.1.0.47\\syncfusion.xamarin.core.20.1.0.47.nupkg.sha512",
@@ -27,6 +28,8 @@
     "C:\\Users\\santo\\.nuget\\packages\\syncfusion.xamarin.sfschedule\\20.1.0.47\\syncfusion.xamarin.sfschedule.20.1.0.47.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\system.collections\\4.0.11\\system.collections.4.0.11.nupkg.sha512",
+    "C:\\Users\\santo\\.nuget\\packages\\system.data.sqlite\\1.0.115.5\\system.data.sqlite.1.0.115.5.nupkg.sha512",
+    "C:\\Users\\santo\\.nuget\\packages\\system.data.sqlite.core\\1.0.115.5\\system.data.sqlite.core.1.0.115.5.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\system.diagnostics.debug\\4.0.11\\system.diagnostics.debug.4.0.11.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\system.diagnostics.tools\\4.0.1\\system.diagnostics.tools.4.0.1.nupkg.sha512",
     "C:\\Users\\santo\\.nuget\\packages\\system.dynamic.runtime\\4.0.11\\system.dynamic.runtime.4.0.11.nupkg.sha512",

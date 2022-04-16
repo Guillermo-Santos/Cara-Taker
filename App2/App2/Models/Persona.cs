@@ -20,10 +20,6 @@ namespace Care_Taker.Models
 
         [ManyToOne]
         public Tipo_Sexo TipoSexo { get; set; }
-        [OneToOne]
-        public Empleado Empleado { get; set; }
-        [OneToOne]
-        public Paciente Paciente { get; set; }
         [OneToMany]
         public List<Email> Emails { get; set; }
         [OneToMany]

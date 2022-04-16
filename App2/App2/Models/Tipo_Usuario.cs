@@ -11,8 +11,5 @@ namespace Care_Taker.Models
         public int CodTpUs { get; set; }
         [MaxLength(100)]
         public string Descripcion { get; set; }
-
-        [OneToMany]
-        public List<Usuario> Usuarios { get; set; }
     }
 }

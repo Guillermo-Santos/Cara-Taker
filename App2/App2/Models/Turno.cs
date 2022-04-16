@@ -19,7 +19,5 @@ namespace Care_Taker.Models
 
         [ManyToOne]
         public Dia Dia { get; set; }
-        [OneToMany]
-        public List<Horario_Cita> Horario_Citas { get; set; }
     }
 }

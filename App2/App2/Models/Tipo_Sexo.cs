@@ -11,8 +11,5 @@ namespace Care_Taker.Models
         public int CodSexo { get; set; }
         [MaxLength(100)]
         public string Descripcion { get; set; }
-
-        [OneToMany]
-        public List<Persona> Personas { get; set; }
     }
 }
