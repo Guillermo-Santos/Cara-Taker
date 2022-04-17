@@ -8,7 +8,7 @@ namespace Care_Taker.Models
     [Table("Examenes")]
     public class Examen
     {
-        [PrimaryKey,AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int CodExmn { get; set; }
         [ForeignKey(typeof(Paciente))]
         public int CodPaci { get; set; }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Care_Taker.Services
@@ -31,6 +28,15 @@ namespace Care_Taker.Services
         private Page MainPage
         {
             get { return Application.Current.MainPage; }
+            set { Application.Current.MainPage = value; }
+        }
+        /// <summary>
+        /// Asigna una pagina como pagina principal de la aplicacion
+        /// </summary>
+        /// <param name="page">pagina a volverse mainpage.</param>
+        public void setMainPage(Page page)
+        {
+            MainPage = page;
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Care_Taker.Views
         public SettingsPage()
         {
             InitializeComponent();
+
+            my.SelectedItem.ToString();
         }
     }
 }

@@ -11,8 +11,7 @@ namespace Care_Taker.Models
         [ForeignKey(typeof(Especialidad))]
         public int CodEspe { get; set; }
 
-        [ManyToOne]
-        public Empleado Empleado { get; set; }
+
         [ManyToOne]
         public Especialidad Especialidad { get; set; }
     }

@@ -3,7 +3,7 @@ using SQLiteNetExtensions.Attributes;
 
 namespace Care_Taker.Models
 {
-    [Table("Usuario")]
+    [Table("Usuarios")]
     public class Usuario
     {
         [PrimaryKey, AutoIncrement]
@@ -17,9 +17,5 @@ namespace Care_Taker.Models
 
         [ManyToOne]
         public Tipo_Usuario Tipo_Usuario { get; set; }
-        [OneToOne]
-        public Paciente Paciente { get; set; }
-        [OneToOne]
-        public Empleado Empleado { get; set; }
     }
 }

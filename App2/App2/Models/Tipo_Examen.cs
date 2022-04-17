@@ -1,6 +1,4 @@
 ﻿using SQLite;
-using SQLiteNetExtensions.Attributes;
-using System.Collections.Generic;
 
 namespace Care_Taker.Models
 {
@@ -12,9 +10,5 @@ namespace Care_Taker.Models
         [MaxLength(100)]
         public string Descripcion { get; set; }
 
-        [OneToMany]
-        public List<Examen> Examenes { get; set; }
-        [OneToMany]
-        public List<Examen_Cita> examen_Citas { get; set; }
     }
 }

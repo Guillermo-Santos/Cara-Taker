@@ -11,6 +11,7 @@ namespace Care_Taker.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public ViewService ViewService => DependencyService.Get<ViewService>();
 
         bool isBusy = false;
         public bool IsBusy

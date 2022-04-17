@@ -7,7 +7,7 @@
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
-        <vm:CalendarViewModel />
+        <vm:SimpleAgendaViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>

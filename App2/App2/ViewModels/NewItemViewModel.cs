@@ -48,7 +48,7 @@ namespace Care_Taker.ViewModels
         {
             Item newItem = new Item()
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = Guid.NewGuid().GetHashCode(),
                 Text = Text,
                 Description = Description
             };

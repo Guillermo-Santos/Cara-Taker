@@ -1,14 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels"
              x:Class="Care_Taker.Views.NewCitaPage"
+             Title="{Binding Title}"
              Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:NewCitaViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Paciente"/>
-            <Entry Placeholder="Medico"/>
+            <Entry Text="Paciente"/>
+            <Picker x:Name="PacientePicker" ItemsSource="{Binding Pacientes}" SelectedItem="{Binding SelectedPaciente,Mode=TwoWay}"/>
+            <Entry Text="Medico"/>
+            <Picker x:Name="EmpleadoPicker" ItemsSource="{Binding Medicos}" SelectedItem="{Binding SelectedEmpleado,Mode=TwoWay}"/>
             <Label Text="Tipo de cita"/>
-            <Picker></Picker>
+            <Picker x:Name="TipoCitaPicker" ItemsSource="{Binding Tipo_Citas}" SelectedItem="{Binding SelectedTipoCita,Mode=TwoWay}"/>
             <Label Text="Fecha"/>
             <DatePicker/>
             <Entry Placeholder="Duracion"/>

@@ -14,7 +14,7 @@ namespace Care_Taker.Models
         public int CodEmpl { get; set; }
         [ForeignKey(typeof(Paciente))]
         public int CodPaci { get; set; }
-        [ForeignKey(typeof (Tipo_Cita))]
+        [ForeignKey(typeof(Tipo_Cita))]
         public int CodTpCt { get; set; }
         public DateTime Fecha { get; set; }
         public string Resultado { get; set; }

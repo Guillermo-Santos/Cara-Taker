@@ -1,5 +1,4 @@
 ﻿using Care_Taker.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,11 +13,11 @@ namespace Care_Taker.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Alejandro Vegas", Description="Ingreso: 08/06/2018     Sangre: O+." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Luis Rogers", Description="Ingreso: 02/10/2019     Sangre: O+." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Miguel Santos", Description="Ingreso: 08/06/2019     Sangre: O-." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Juan Molina", Description="Ingreso: 16/03/2020     Sangre: O+." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Christofer Vargas", Description="Ingreso: 26/11/2022     Sangre: O+." }
+                new Item { Id = 1, Text = "Alejandro Vegas", Description="Ingreso: 08/06/2018     Sangre: O+." },
+                new Item { Id = 2, Text = "Luis Rogers", Description="Ingreso: 02/10/2019     Sangre: O+." },
+                new Item { Id = 3, Text = "Miguel Santos", Description="Ingreso: 08/06/2019     Sangre: O-." },
+                new Item { Id = 4, Text = "Juan Molina", Description="Ingreso: 16/03/2020     Sangre: O+." },
+                new Item { Id = 5, Text = "Christofer Vargas", Description="Ingreso: 26/11/2022     Sangre: O+." }
             };
         }
 
@@ -38,7 +37,7 @@ namespace Care_Taker.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
             var oldItem = items.Where((arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
@@ -46,14 +45,19 @@ namespace Care_Taker.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Item> GetItemAsync(int id)
         {
-            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+            return await Task.FromResult(items[0]);
         }
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
+        }
+
+        public Task<IEnumerable<Item>> GetItemsAsync(int conditional)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

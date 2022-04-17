@@ -15,7 +15,7 @@ namespace Care_Taker.Models
         public int CodTpSg { get; set; }
         [ForeignKey(typeof(Usuario))]
         public int CodUser { get; set; }
-       
+
         [OneToOne]
         public Persona Persona { get; set; }
         [ManyToOne]

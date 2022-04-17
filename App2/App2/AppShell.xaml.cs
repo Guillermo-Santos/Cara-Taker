@@ -21,12 +21,12 @@ namespace Care_Taker
 
         private void OnMenuItemClicked(object sender, EventArgs e)
         {
-            logout();
+            Exit();
         }
 
-        private async void logout()
+        private void Exit()
         {
-            await Shell.Current.GoToAsync("//LoginPage");
+            Application.Current.MainPage = new LoginPage();
         }
     }
 }
