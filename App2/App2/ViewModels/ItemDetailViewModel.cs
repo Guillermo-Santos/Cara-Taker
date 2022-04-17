@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
 using Xamarin.Forms;
-using Care_Taker.Services;
 
 namespace Care_Taker.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
-        private string itemId;
+        private int itemId;
         private string text;
         private string description;
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Text
         {
@@ -25,7 +24,7 @@ namespace Care_Taker.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public string ItemId
+        public int ItemId
         {
             get
             {
@@ -38,7 +37,7 @@ namespace Care_Taker.ViewModels
             }
         }
 
-        public async void LoadItemId(string itemId)
+        public async void LoadItemId(int itemId)
         {
             try
             {

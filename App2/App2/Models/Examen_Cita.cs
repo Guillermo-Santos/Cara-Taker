@@ -1,5 +1,4 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
 
 namespace Care_Taker.Models

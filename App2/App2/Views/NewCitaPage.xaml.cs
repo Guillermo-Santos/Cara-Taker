@@ -1,4 +1,4 @@
-﻿
+﻿using Care_Taker.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +10,7 @@ namespace Care_Taker.Views
         public NewCitaPage()
         {
             InitializeComponent();
+            this.BindingContext = new NewCitaPage();
         }
     }
 }

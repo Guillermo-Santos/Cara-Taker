@@ -8,9 +8,9 @@
              xmlns:model="clr-namespace:Care_Taker.Models" 
              xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms" 
              Visual="Material">
-    
+
     <ContentPage.BindingContext>
-        <vm:CalendarViewModel />
+        <vm:SimpleAgendaViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
@@ -20,13 +20,13 @@
         
     </ContentPage.Resources>
 
-    <Grid>
+    <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="10">
         <syncfusion:SfCalendar x:Name="calendar"
-                           DataSource="{Binding CitasAppointments}" 
-                           InlineViewMode="Agenda"
-                           AgendaViewHeight="200"
-                           ShowInlineEvents="True"
-                           InlineItemTapped="calendar_InlineItemTapped">
+                               DataSource="{Binding CitasAppointments}" 
+                               InlineViewMode="Agenda"
+                               ShowInlineEvents="True"
+                               HeightRequest="650"
+                               InlineItemTapped="calendar_InlineItemTapped">
             <syncfusion:SfCalendar.MonthViewSettings>
                 <syncfusion:MonthViewSettings>
                     <syncfusion:MonthViewSettings.InlineItemTemplate>
@@ -37,7 +37,8 @@
                 </syncfusion:MonthViewSettings>
             </syncfusion:SfCalendar.MonthViewSettings>
         </syncfusion:SfCalendar>
-    </Grid>    
+        <Button Text="Agendar una cita" Command="{Binding OnNewCitaButton_Click}"/>
+    </StackLayout>    
 
 
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using System.Threading.Tasks;
 
 namespace Care_Taker.Services
 {
@@ -17,12 +18,12 @@ namespace Care_Taker.Services
         /// Metodo para generar las tablas de la base de datos
         /// </summary>
         /// <param name="connection"> conexion a la base de datos a utilizar</param>
-        void CreateTables(SQLiteAsyncConnection connection);
+        Task<bool> CreateTables(SQLiteAsyncConnection connection);
 
         /// <summary>
         /// Metodo para generar la data base de la base de datos.
         /// </summary>
         /// <param name="connection"> Conexion a la base de datos a utilizar. </param>
-        void BaseData(SQLiteAsyncConnection connection);
+        Task<bool> BaseData(SQLiteAsyncConnection connection);
     }
 }

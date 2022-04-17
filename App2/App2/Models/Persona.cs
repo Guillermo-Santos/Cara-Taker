@@ -1,6 +1,6 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace Care_Taker.Models

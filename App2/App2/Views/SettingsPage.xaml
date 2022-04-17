@@ -31,7 +31,7 @@
                     </Grid>
                     <StackLayout Grid.Row="1">
                         <Label Text="Color" FontSize="Body" HorizontalOptions="StartAndExpand"/>
-                        <Picker SelectedIndex="0" SelectedItem="0">
+                        <Picker x:Name="my" SelectedIndex="0" SelectedItem="0" >
                             <Picker.Items>
                                 <x:String>Claro</x:String>
                                 <x:String>Oscuro</x:String>

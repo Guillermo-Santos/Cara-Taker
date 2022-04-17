@@ -28,5 +28,7 @@ namespace Care_Taker.Models
         public List<Cita> Citas { get; set; }
         [OneToMany]
         public List<Horario_Cita> Horario_Citas { get; set; }
+        [OneToMany]
+        public List<Empleado_Especialidad> Especialidades { get; set; }
     }
 }

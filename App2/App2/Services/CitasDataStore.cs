@@ -1,46 +1,24 @@
-﻿using System;
+﻿using Care_Taker.Models;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using Care_Taker.Models;
-using SQLite;
 
 namespace Care_Taker.Services
 {
     public class CitasDataStore : IDataStore<Cita>
     {
-
-        private SQLiteAsyncConnection _connection;
-        public CitasDataStore(ISQLiteDB db)
+        public Task<Cita> GetItemAsync(int id)
         {
-            _connection = db.GetConnection();
-            _connection.CreateTableAsync<Cita>();
-
+            return Task.FromResult(App.Connection.Table<Cita>().FirstOrDefaultAsync(t => t.CodCita == id).Result);
+        }
+        
+        public async Task<IEnumerable<Cita>> GetItemsAsync(bool forceRefresh = false)
+        {
+            return await Task.FromResult(App.Connection.Table<Cita>().ToListAsync().Result);
         }
 
-        public Task<bool> AddItemAsync(Cita item)
+        public async Task<IEnumerable<Cita>> GetItemsAsync(int conditional)
         {
-            return Task.FromResult(true);
-        }
-
-        public Task<bool> DeleteItemAsync(string id)
-        {
-            return Task.FromResult(true);
-        }
-
-        public Task<Cita> GetItemAsync(string id)
-        {
-            return Task.FromResult(new Cita());
-        }
-
-        public Task<IEnumerable<Cita>> GetItemsAsync(bool forceRefresh = false)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> UpdateItemAsync(Cita item)
-        {
-            return Task.FromResult(true);
+            return await Task.FromResult(App.Connection.Table<Cita>().Where(t => t.CodEmpl == conditional).ToListAsync().Result);
         }
     }
 }

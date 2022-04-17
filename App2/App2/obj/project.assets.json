@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v2.0": {
+    ".NETStandard,Version=v2.1": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -29,7 +29,7 @@
           "lib/netstandard1.3/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/1.1.0": {
+      "Microsoft.NETCore.Platforms/1.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -45,21 +45,6 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
-        }
-      },
-      "NETStandard.Library/2.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0"
-        },
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "build": {
-          "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
       "Newtonsoft.Json/9.0.1": {
@@ -221,34 +206,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "Stub.System.Data.SQLite.Core.NetStandard/1.0.115.5": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/System.Data.SQLite.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Data.SQLite.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/linux-x64/native/SQLite.Interop.dll": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/osx-x64/native/SQLite.Interop.dll": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/win-x64/native/SQLite.Interop.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x86/native/SQLite.Interop.dll": {
-            "assetType": "native",
-            "rid": "win-x86"
-          }
-        }
-      },
-      "Syncfusion.Licensing/20.1.0.47": {
+      "Syncfusion.Licensing/20.1.0.48": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
@@ -257,7 +215,7 @@
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Compression/20.1.0.47": {
+      "Syncfusion.Xamarin.Compression/20.1.0.48": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Syncfusion.Compression.Portable.dll": {}
@@ -266,10 +224,10 @@
           "lib/netstandard2.0/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Core/20.1.0.47": {
+      "Syncfusion.Xamarin.Core/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "20.1.0.47",
+          "Syncfusion.Licensing": "20.1.0.48",
           "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
@@ -279,11 +237,11 @@
           "lib/netstandard2.0/Syncfusion.Core.XForms.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Pdf/20.1.0.47": {
+      "Syncfusion.Xamarin.Pdf/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "20.1.0.47",
-          "Syncfusion.Xamarin.Compression": "20.1.0.47"
+          "Syncfusion.Licensing": "20.1.0.48",
+          "Syncfusion.Xamarin.Compression": "20.1.0.48"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll": {}
@@ -292,10 +250,10 @@
           "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll": {}
         }
       },
-      "Syncfusion.Xamarin.SfBusyIndicator/20.1.0.47": {
+      "Syncfusion.Xamarin.SfBusyIndicator/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Xamarin.Core": "20.1.0.47",
+          "Syncfusion.Xamarin.Core": "20.1.0.48",
           "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
@@ -305,10 +263,10 @@
           "lib/netstandard2.0/Syncfusion.SfBusyIndicator.XForms.dll": {}
         }
       },
-      "Syncfusion.Xamarin.SfCalendar/20.1.0.47": {
+      "Syncfusion.Xamarin.SfCalendar/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Xamarin.Core": "20.1.0.47",
+          "Syncfusion.Xamarin.Core": "20.1.0.48",
           "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
@@ -318,14 +276,14 @@
           "lib/netstandard2.0/Syncfusion.SfCalendar.XForms.dll": {}
         }
       },
-      "Syncfusion.Xamarin.SfPdfViewer/20.1.0.47": {
+      "Syncfusion.Xamarin.SfPdfViewer/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Xamarin.Core": "20.1.0.47",
-          "Syncfusion.Xamarin.Pdf": "20.1.0.47",
-          "Syncfusion.Xamarin.SfBusyIndicator": "20.1.0.47",
-          "Syncfusion.Xamarin.SfProgressBar": "20.1.0.47",
-          "Syncfusion.Xamarin.SfRangeSlider": "20.1.0.47",
+          "Syncfusion.Xamarin.Core": "20.1.0.48",
+          "Syncfusion.Xamarin.Pdf": "20.1.0.48",
+          "Syncfusion.Xamarin.SfBusyIndicator": "20.1.0.48",
+          "Syncfusion.Xamarin.SfProgressBar": "20.1.0.48",
+          "Syncfusion.Xamarin.SfRangeSlider": "20.1.0.48",
           "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
@@ -335,10 +293,10 @@
           "lib/netstandard2.0/Syncfusion.SfPdfViewer.XForms.dll": {}
         }
       },
-      "Syncfusion.Xamarin.SfProgressBar/20.1.0.47": {
+      "Syncfusion.Xamarin.SfProgressBar/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Xamarin.Core": "20.1.0.47",
+          "Syncfusion.Xamarin.Core": "20.1.0.48",
           "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
@@ -348,10 +306,10 @@
           "lib/netstandard2.0/Syncfusion.SfProgressBar.XForms.dll": {}
         }
       },
-      "Syncfusion.Xamarin.SfRangeSlider/20.1.0.47": {
+      "Syncfusion.Xamarin.SfRangeSlider/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Xamarin.Core": "20.1.0.47",
+          "Syncfusion.Xamarin.Core": "20.1.0.48",
           "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
@@ -361,10 +319,10 @@
           "lib/netstandard2.0/Syncfusion.SfRangeSlider.XForms.dll": {}
         }
       },
-      "Syncfusion.Xamarin.SfSchedule/20.1.0.47": {
+      "Syncfusion.Xamarin.SfSchedule/20.1.0.48": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Xamarin.Core": "20.1.0.47",
+          "Syncfusion.Xamarin.Core": "20.1.0.48",
           "Xamarin.Forms": "5.0.0.2012"
         },
         "compile": {
@@ -392,18 +350,6 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Collections.dll": {}
-        }
-      },
-      "System.Data.SQLite/1.0.115.5": {
-        "type": "package",
-        "dependencies": {
-          "System.Data.SQLite.Core": "[1.0.115.5]"
-        }
-      },
-      "System.Data.SQLite.Core/1.0.115.5": {
-        "type": "package",
-        "dependencies": {
-          "Stub.System.Data.SQLite.Core.NetStandard": "[1.0.115.5]"
         }
       },
       "System.Diagnostics.Debug/4.0.11": {
@@ -891,7 +837,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Xamarin.Essentials/1.7.1": {
+      "Xamarin.Essentials/1.7.2": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -982,17 +928,17 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+    "Microsoft.NETCore.Platforms/1.0.1": {
+      "sha512": "2G6OjjJzwBfNOO8myRV/nFrbTw5iA+DEm0N+qUqhrOmaVtn4pC77h38I1jsXGw5VH55+dPfQsqHD0We9sCl9FQ==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/1.1.0",
+      "path": "microsoft.netcore.platforms/1.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+        "microsoft.netcore.platforms.1.0.1.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json"
       ]
@@ -1009,135 +955,6 @@
         "microsoft.netcore.targets.1.0.1.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
-      ]
-    },
-    "NETStandard.Library/2.0.3": {
-      "sha512": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
-      "type": "package",
-      "path": "netstandard.library/2.0.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "build/netstandard2.0/NETStandard.Library.targets",
-        "build/netstandard2.0/ref/Microsoft.Win32.Primitives.dll",
-        "build/netstandard2.0/ref/System.AppContext.dll",
-        "build/netstandard2.0/ref/System.Collections.Concurrent.dll",
-        "build/netstandard2.0/ref/System.Collections.NonGeneric.dll",
-        "build/netstandard2.0/ref/System.Collections.Specialized.dll",
-        "build/netstandard2.0/ref/System.Collections.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.Composition.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.EventBasedAsync.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.Primitives.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.TypeConverter.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.dll",
-        "build/netstandard2.0/ref/System.Console.dll",
-        "build/netstandard2.0/ref/System.Core.dll",
-        "build/netstandard2.0/ref/System.Data.Common.dll",
-        "build/netstandard2.0/ref/System.Data.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Contracts.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Debug.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.FileVersionInfo.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Process.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.StackTrace.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.TextWriterTraceListener.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Tools.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.TraceSource.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Tracing.dll",
-        "build/netstandard2.0/ref/System.Drawing.Primitives.dll",
-        "build/netstandard2.0/ref/System.Drawing.dll",
-        "build/netstandard2.0/ref/System.Dynamic.Runtime.dll",
-        "build/netstandard2.0/ref/System.Globalization.Calendars.dll",
-        "build/netstandard2.0/ref/System.Globalization.Extensions.dll",
-        "build/netstandard2.0/ref/System.Globalization.dll",
-        "build/netstandard2.0/ref/System.IO.Compression.FileSystem.dll",
-        "build/netstandard2.0/ref/System.IO.Compression.ZipFile.dll",
-        "build/netstandard2.0/ref/System.IO.Compression.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.DriveInfo.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.Primitives.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.Watcher.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.dll",
-        "build/netstandard2.0/ref/System.IO.IsolatedStorage.dll",
-        "build/netstandard2.0/ref/System.IO.MemoryMappedFiles.dll",
-        "build/netstandard2.0/ref/System.IO.Pipes.dll",
-        "build/netstandard2.0/ref/System.IO.UnmanagedMemoryStream.dll",
-        "build/netstandard2.0/ref/System.IO.dll",
-        "build/netstandard2.0/ref/System.Linq.Expressions.dll",
-        "build/netstandard2.0/ref/System.Linq.Parallel.dll",
-        "build/netstandard2.0/ref/System.Linq.Queryable.dll",
-        "build/netstandard2.0/ref/System.Linq.dll",
-        "build/netstandard2.0/ref/System.Net.Http.dll",
-        "build/netstandard2.0/ref/System.Net.NameResolution.dll",
-        "build/netstandard2.0/ref/System.Net.NetworkInformation.dll",
-        "build/netstandard2.0/ref/System.Net.Ping.dll",
-        "build/netstandard2.0/ref/System.Net.Primitives.dll",
-        "build/netstandard2.0/ref/System.Net.Requests.dll",
-        "build/netstandard2.0/ref/System.Net.Security.dll",
-        "build/netstandard2.0/ref/System.Net.Sockets.dll",
-        "build/netstandard2.0/ref/System.Net.WebHeaderCollection.dll",
-        "build/netstandard2.0/ref/System.Net.WebSockets.Client.dll",
-        "build/netstandard2.0/ref/System.Net.WebSockets.dll",
-        "build/netstandard2.0/ref/System.Net.dll",
-        "build/netstandard2.0/ref/System.Numerics.dll",
-        "build/netstandard2.0/ref/System.ObjectModel.dll",
-        "build/netstandard2.0/ref/System.Reflection.Extensions.dll",
-        "build/netstandard2.0/ref/System.Reflection.Primitives.dll",
-        "build/netstandard2.0/ref/System.Reflection.dll",
-        "build/netstandard2.0/ref/System.Resources.Reader.dll",
-        "build/netstandard2.0/ref/System.Resources.ResourceManager.dll",
-        "build/netstandard2.0/ref/System.Resources.Writer.dll",
-        "build/netstandard2.0/ref/System.Runtime.CompilerServices.VisualC.dll",
-        "build/netstandard2.0/ref/System.Runtime.Extensions.dll",
-        "build/netstandard2.0/ref/System.Runtime.Handles.dll",
-        "build/netstandard2.0/ref/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "build/netstandard2.0/ref/System.Runtime.InteropServices.dll",
-        "build/netstandard2.0/ref/System.Runtime.Numerics.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Formatters.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Json.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Primitives.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Xml.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.dll",
-        "build/netstandard2.0/ref/System.Runtime.dll",
-        "build/netstandard2.0/ref/System.Security.Claims.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Algorithms.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Csp.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Encoding.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Primitives.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.X509Certificates.dll",
-        "build/netstandard2.0/ref/System.Security.Principal.dll",
-        "build/netstandard2.0/ref/System.Security.SecureString.dll",
-        "build/netstandard2.0/ref/System.ServiceModel.Web.dll",
-        "build/netstandard2.0/ref/System.Text.Encoding.Extensions.dll",
-        "build/netstandard2.0/ref/System.Text.Encoding.dll",
-        "build/netstandard2.0/ref/System.Text.RegularExpressions.dll",
-        "build/netstandard2.0/ref/System.Threading.Overlapped.dll",
-        "build/netstandard2.0/ref/System.Threading.Tasks.Parallel.dll",
-        "build/netstandard2.0/ref/System.Threading.Tasks.dll",
-        "build/netstandard2.0/ref/System.Threading.Thread.dll",
-        "build/netstandard2.0/ref/System.Threading.ThreadPool.dll",
-        "build/netstandard2.0/ref/System.Threading.Timer.dll",
-        "build/netstandard2.0/ref/System.Threading.dll",
-        "build/netstandard2.0/ref/System.Transactions.dll",
-        "build/netstandard2.0/ref/System.ValueTuple.dll",
-        "build/netstandard2.0/ref/System.Web.dll",
-        "build/netstandard2.0/ref/System.Windows.dll",
-        "build/netstandard2.0/ref/System.Xml.Linq.dll",
-        "build/netstandard2.0/ref/System.Xml.ReaderWriter.dll",
-        "build/netstandard2.0/ref/System.Xml.Serialization.dll",
-        "build/netstandard2.0/ref/System.Xml.XDocument.dll",
-        "build/netstandard2.0/ref/System.Xml.XPath.XDocument.dll",
-        "build/netstandard2.0/ref/System.Xml.XPath.dll",
-        "build/netstandard2.0/ref/System.Xml.XmlDocument.dll",
-        "build/netstandard2.0/ref/System.Xml.XmlSerializer.dll",
-        "build/netstandard2.0/ref/System.Xml.dll",
-        "build/netstandard2.0/ref/System.dll",
-        "build/netstandard2.0/ref/mscorlib.dll",
-        "build/netstandard2.0/ref/netstandard.dll",
-        "build/netstandard2.0/ref/netstandard.xml",
-        "lib/netstandard1.0/_._",
-        "netstandard.library.2.0.3.nupkg.sha512",
-        "netstandard.library.nuspec"
       ]
     },
     "Newtonsoft.Json/9.0.1": {
@@ -1285,31 +1102,10 @@
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
-    "Stub.System.Data.SQLite.Core.NetStandard/1.0.115.5": {
-      "sha512": "WfrqQg6WL+r4H1sVKTenNj6ERLXUukUxqcjH1rqPqXadeIWccTVpydESieD7cZ/NWQVSKLYIHuoBX5du+BFhIQ==",
+    "Syncfusion.Licensing/20.1.0.48": {
+      "sha512": "f+nrjyw08N1OIUmDbn+zv2MKDf03o5yf5j/Ypk2DIZDfQuIKp5t9zyxOtfL3Ya7oNUtmSPJQ5zNuAzZln4JreA==",
       "type": "package",
-      "path": "stub.system.data.sqlite.core.netstandard/1.0.115.5",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/System.Data.SQLite.dll",
-        "lib/netstandard2.0/System.Data.SQLite.dll.altconfig",
-        "lib/netstandard2.0/System.Data.SQLite.xml",
-        "lib/netstandard2.1/System.Data.SQLite.dll",
-        "lib/netstandard2.1/System.Data.SQLite.dll.altconfig",
-        "lib/netstandard2.1/System.Data.SQLite.xml",
-        "runtimes/linux-x64/native/SQLite.Interop.dll",
-        "runtimes/osx-x64/native/SQLite.Interop.dll",
-        "runtimes/win-x64/native/SQLite.Interop.dll",
-        "runtimes/win-x86/native/SQLite.Interop.dll",
-        "stub.system.data.sqlite.core.netstandard.1.0.115.5.nupkg.sha512",
-        "stub.system.data.sqlite.core.netstandard.nuspec"
-      ]
-    },
-    "Syncfusion.Licensing/20.1.0.47": {
-      "sha512": "wvtXu+N9seO8rHt18VmOGX9B2/aAzyxKteyDVXJPUBcuLf8PuRppBE9cx3gKeBokvMK03zihC/39xcz4kWdtNA==",
-      "type": "package",
-      "path": "syncfusion.licensing/20.1.0.47",
+      "path": "syncfusion.licensing/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1333,15 +1129,15 @@
         "lib/netstandard2.0/Syncfusion.Licensing.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
         "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.20.1.0.47.nupkg.sha512",
+        "syncfusion.licensing.20.1.0.48.nupkg.sha512",
         "syncfusion.licensing.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.Compression/20.1.0.47": {
-      "sha512": "McAloa13++6Wxxj6bw0AOWKs50vSVJOevs+Gg86i2dVIaJBWp23EnBJVkm11kQ9T8LmbMmqIAO0zkJwdctLmTg==",
+    "Syncfusion.Xamarin.Compression/20.1.0.48": {
+      "sha512": "n+/FDHIQH/MXY5UGXNrk/NpOGp3u8Pj3VdpTXf6Vofn0MQySxYBZIrJMrR1yZh9baHUJEtBlZj6HyAXVtvx3YA==",
       "type": "package",
-      "path": "syncfusion.xamarin.compression/20.1.0.47",
+      "path": "syncfusion.xamarin.compression/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1353,15 +1149,15 @@
         "lib/netstandard2.0/Syncfusion.Compression.Portable.xml",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Compression.Portable.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Compression.Portable.xml",
-        "syncfusion.xamarin.compression.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.compression.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.compression.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.Core/20.1.0.47": {
-      "sha512": "L6RiJZK7BZ/ijjjXYolMf1wkz4+gep6tLmeZqzsr9+d0WcFmAN4YwLV5i3gQq7gvqo2Niij/+CPCWr55VADzvg==",
+    "Syncfusion.Xamarin.Core/20.1.0.48": {
+      "sha512": "VjJoDhx6PrQiTe6hMx92okWPAzaA/O0LVDXNOLV9hB3H/7s49z5XxM8DYnu6f7HjCLG81Wdw39U8N+Z3KVuB1Q==",
       "type": "package",
-      "path": "syncfusion.xamarin.core/20.1.0.47",
+      "path": "syncfusion.xamarin.core/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1388,15 +1184,15 @@
         "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/ToggleVisibleIcon.xaml",
         "lib/uap10.0/Syncfusion.Core.XForms.dll",
         "lib/uap10.0/Syncfusion.Core.XForms.xml",
-        "syncfusion.xamarin.core.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.core.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.core.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.Pdf/20.1.0.47": {
-      "sha512": "cfe/UbBjqGr4S7h7kwJWIJOMCm6htYB8mvZ+E6hxK6JpTqHoOBhTZnTvV921NwZ+AINhKub08mrc0XAanm6OnA==",
+    "Syncfusion.Xamarin.Pdf/20.1.0.48": {
+      "sha512": "ZdYLbpsBj59pX7jClTT+TWB3Lj1Ivx72jMhaBwCxXC1Jpcs4HCBozQFmFdjo9vVfv9ZF5gq85zk3HDc7oA8jkQ==",
       "type": "package",
-      "path": "syncfusion.xamarin.pdf/20.1.0.47",
+      "path": "syncfusion.xamarin.pdf/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1408,15 +1204,15 @@
         "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Pdf.Portable.XML",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Pdf.Portable.dll",
-        "syncfusion.xamarin.pdf.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.pdf.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.pdf.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.SfBusyIndicator/20.1.0.47": {
-      "sha512": "omE7TaS7pQtrM0zCYHN6+6XPFyM1GtfXC11Tb98KLKxX5kOzSZzLXVbuba1fTmqeuSM/AuNRTyxLZeDQ2LRLrg==",
+    "Syncfusion.Xamarin.SfBusyIndicator/20.1.0.48": {
+      "sha512": "prKvlT3k5LskS8ME3S1gDUpo559QMfxzTuwOJ13zEvG4K7tG3Odrppb3nQOUluSKKBB2yT+pKLyWYvrYo0P6wA==",
       "type": "package",
-      "path": "syncfusion.xamarin.sfbusyindicator/20.1.0.47",
+      "path": "syncfusion.xamarin.sfbusyindicator/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1440,15 +1236,15 @@
         "lib/uap10.0/Syncfusion.SfBusyIndicator.XForms.UWP.dll",
         "lib/uap10.0/Syncfusion.SfBusyIndicator.XForms.dll",
         "lib/uap10.0/Syncfusion.SfBusyIndicator.XForms.xml",
-        "syncfusion.xamarin.sfbusyindicator.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.sfbusyindicator.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.sfbusyindicator.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.SfCalendar/20.1.0.47": {
-      "sha512": "B+Ccu89GOsW1VyCmlYmUuUD7GucbQXb8G5q6stzrXG2WHyIDGkEoOiB5bLBrofDlfXVN2e+BqqhrUK+QbY/Wsw==",
+    "Syncfusion.Xamarin.SfCalendar/20.1.0.48": {
+      "sha512": "hIrsEiXZ2G/DFE+Tfz5/NSD+RGnsAextkXWfDXtlsjYbQmuMRLpUzzCxvd7i5LqyKs4ULH482GnaYAmJiA9nVg==",
       "type": "package",
-      "path": "syncfusion.xamarin.sfcalendar/20.1.0.47",
+      "path": "syncfusion.xamarin.sfcalendar/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1474,15 +1270,15 @@
         "lib/uap10.0/Syncfusion.SfCalendar.XForms.UWP/Xamarin.Forms.Platform.UAP/Xamarin.Forms.Platform.UAP.xr.xml",
         "lib/uap10.0/Syncfusion.SfCalendar.XForms.dll",
         "lib/uap10.0/Syncfusion.SfCalendar.XForms.xml",
-        "syncfusion.xamarin.sfcalendar.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.sfcalendar.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.sfcalendar.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.SfPdfViewer/20.1.0.47": {
-      "sha512": "096kAprCZvKm01C7SUvow49QG7j5mNLB9Fze5DzylKoWg0p94RHP9HilzLzjb8UhngkAlcAS5gfpKZYmtYlEfg==",
+    "Syncfusion.Xamarin.SfPdfViewer/20.1.0.48": {
+      "sha512": "BMOiQaYei3c+RfDPVuEPH/UudCfgUMV34eRkzehVoVZFspBax0AHtcdnBZKI+s4Z+SvPuPHbxOIqeJn/B8qM9g==",
       "type": "package",
-      "path": "syncfusion.xamarin.sfpdfviewer/20.1.0.47",
+      "path": "syncfusion.xamarin.sfpdfviewer/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1533,15 +1329,15 @@
         "lib/uap10.0/Syncfusion.SfPdfViewer.XForms.UWP/Xamarin.Forms.Platform.UAP/Xamarin.Forms.Platform.UAP.xr.xml",
         "lib/uap10.0/Syncfusion.SfPdfViewer.XForms.dll",
         "lib/uap10.0/Syncfusion.SfPdfViewer.XForms.xml",
-        "syncfusion.xamarin.sfpdfviewer.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.sfpdfviewer.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.sfpdfviewer.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.SfProgressBar/20.1.0.47": {
-      "sha512": "5bNT8pCBaJH97+5nb2na5eVv5KvsEY04/Pah+hs3jmsnIprmhM5AyJipTP3EJnGeSz5IcpjFPbL7HLobhBJZOA==",
+    "Syncfusion.Xamarin.SfProgressBar/20.1.0.48": {
+      "sha512": "vBS003gbJ3KhO5SXGsh6pL+9BRF9iB0/FcRGBoKEmZkUOIKxF9zC7XDkhep850nOLT8KZ+EGfEDHgkxrE/q3VA==",
       "type": "package",
-      "path": "syncfusion.xamarin.sfprogressbar/20.1.0.47",
+      "path": "syncfusion.xamarin.sfprogressbar/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1565,15 +1361,15 @@
         "lib/uap10.0/Syncfusion.SfProgressBar.XForms.UWP/Xamarin.Forms.Platform.UAP/Xamarin.Forms.Platform.UAP.xr.xml",
         "lib/uap10.0/Syncfusion.SfProgressBar.XForms.dll",
         "lib/uap10.0/Syncfusion.SfProgressBar.XForms.xml",
-        "syncfusion.xamarin.sfprogressbar.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.sfprogressbar.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.sfprogressbar.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.SfRangeSlider/20.1.0.47": {
-      "sha512": "CFBNvMqvuhLndxLA5AsdsKPQ47wUDB/NSAjXmEexYdELr1KEf8c74v0Mo82ZwrLgf9aOjGG5/plv5RXvdq7BbA==",
+    "Syncfusion.Xamarin.SfRangeSlider/20.1.0.48": {
+      "sha512": "UfGeniV/l2zlsLoV4HWJ1kvGZQc4H+Ty9MdCLOGe1MAQgGjNulp33tJQyya7uddA3FtlJRhttGcLZJvJiKZw2A==",
       "type": "package",
-      "path": "syncfusion.xamarin.sfrangeslider/20.1.0.47",
+      "path": "syncfusion.xamarin.sfrangeslider/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1597,15 +1393,15 @@
         "lib/uap10.0/Syncfusion.SfRangeSlider.XForms.UWP.dll",
         "lib/uap10.0/Syncfusion.SfRangeSlider.XForms.dll",
         "lib/uap10.0/Syncfusion.SfRangeSlider.XForms.xml",
-        "syncfusion.xamarin.sfrangeslider.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.sfrangeslider.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.sfrangeslider.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Xamarin.SfSchedule/20.1.0.47": {
-      "sha512": "9QnjbwhNYyoqL9oNEAG+8QVeQPWibu5cvihJma3/Bg4E7B2R95/8s6/QaTqy+pc8XpA1MV8D/k8A5MvRWLN53Q==",
+    "Syncfusion.Xamarin.SfSchedule/20.1.0.48": {
+      "sha512": "JHuescK51ppz3XhWTSGYqNotiN/l1ugs3VuRMdoti8384vFvo8QynQ/Gx3fvztGir/Y0fFY7nOLNfMe4rWnggw==",
       "type": "package",
-      "path": "syncfusion.xamarin.sfschedule/20.1.0.47",
+      "path": "syncfusion.xamarin.sfschedule/20.1.0.48",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1629,7 +1425,7 @@
         "lib/uap10.0/Syncfusion.SfSchedule.XForms.UWP/Themes/Generic.xaml",
         "lib/uap10.0/Syncfusion.SfSchedule.XForms.dll",
         "lib/uap10.0/Syncfusion.SfSchedule.XForms.xml",
-        "syncfusion.xamarin.sfschedule.20.1.0.47.nupkg.sha512",
+        "syncfusion.xamarin.sfschedule.20.1.0.48.nupkg.sha512",
         "syncfusion.xamarin.sfschedule.nuspec",
         "syncfusion_logo.png"
       ]
@@ -1725,28 +1521,6 @@
         "ref/xamarinwatchos10/_._",
         "system.collections.4.0.11.nupkg.sha512",
         "system.collections.nuspec"
-      ]
-    },
-    "System.Data.SQLite/1.0.115.5": {
-      "sha512": "zo5xzYAVkmREKM4ImeiEatwa9D6Bc1KvnmX+VFysJ4sf89yZVdz4uf7A351hZhqBbHsX4ZeULmYocokOPCOcKw==",
-      "type": "package",
-      "path": "system.data.sqlite/1.0.115.5",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "system.data.sqlite.1.0.115.5.nupkg.sha512",
-        "system.data.sqlite.nuspec"
-      ]
-    },
-    "System.Data.SQLite.Core/1.0.115.5": {
-      "sha512": "vADIqqgpxaC5xR6qOV8/KMZkQeSDCfmmWpVOtQx0oEr3Yjq2XdTxX7+jfE4+oO2xPovAbYiz6Q5cLRbSsDkq6Q==",
-      "type": "package",
-      "path": "system.data.sqlite.core/1.0.115.5",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "system.data.sqlite.core.1.0.115.5.nupkg.sha512",
-        "system.data.sqlite.core.nuspec"
       ]
     },
     "System.Diagnostics.Debug/4.0.11": {
@@ -3783,10 +3557,10 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Xamarin.Essentials/1.7.1": {
-      "sha512": "u7pUgvHJKTYo5ATiwRZvYviq2O0AQXIqxdna+sMxqidfWpbD7FBgFOLNAZzWKSll/AQBPeDrqLAWZNLq+ztpmQ==",
+    "Xamarin.Essentials/1.7.2": {
+      "sha512": "3r2QA/54YZGw6o+cBmIQdvs9nkT1SNHHvFGl1jg2bJ/INmsPdSU4ddrwhIw6zSWSIMRbemKvXEVov1KwjRk6PQ==",
       "type": "package",
-      "path": "xamarin.essentials/1.7.1",
+      "path": "xamarin.essentials/1.7.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3821,7 +3595,7 @@
         "lib/xamarinwatchos10/Xamarin.Essentials.pdb",
         "lib/xamarinwatchos10/Xamarin.Essentials.xml",
         "readme.txt",
-        "xamarin.essentials.1.7.1.nupkg.sha512",
+        "xamarin.essentials.1.7.2.nupkg.sha512",
         "xamarin.essentials.nuspec"
       ]
     },
@@ -4043,16 +3817,14 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3",
+    ".NETStandard,Version=v2.1": [
       "SQLiteNetExtensions >= 2.1.0",
-      "Syncfusion.Xamarin.Compression >= 20.1.0.47",
-      "Syncfusion.Xamarin.Pdf >= 20.1.0.47",
-      "Syncfusion.Xamarin.SfCalendar >= 20.1.0.47",
-      "Syncfusion.Xamarin.SfPdfViewer >= 20.1.0.47",
-      "Syncfusion.Xamarin.SfSchedule >= 20.1.0.47",
-      "System.Data.SQLite >= 1.0.115.5",
-      "Xamarin.Essentials >= 1.7.1",
+      "Syncfusion.Xamarin.Compression >= 20.1.0.48",
+      "Syncfusion.Xamarin.Pdf >= 20.1.0.48",
+      "Syncfusion.Xamarin.SfCalendar >= 20.1.0.48",
+      "Syncfusion.Xamarin.SfPdfViewer >= 20.1.0.48",
+      "Syncfusion.Xamarin.SfSchedule >= 20.1.0.48",
+      "Xamarin.Essentials >= 1.7.2",
       "Xamarin.Forms >= 5.0.0.2401",
       "sqlite-net-pcl >= 1.8.116"
     ]
@@ -4079,15 +3851,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netstandard2.0"
+        "netstandard2.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netstandard2.0": {
-          "targetAlias": "netstandard2.0",
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "projectReferences": {}
         }
       },
@@ -4098,46 +3870,36 @@
       }
     },
     "frameworks": {
-      "netstandard2.0": {
-        "targetAlias": "netstandard2.0",
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
         "dependencies": {
-          "NETStandard.Library": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[2.0.3, )",
-            "autoReferenced": true
-          },
           "SQLiteNetExtensions": {
             "target": "Package",
             "version": "[2.1.0, )"
           },
           "Syncfusion.Xamarin.Compression": {
             "target": "Package",
-            "version": "[20.1.0.47, )"
+            "version": "[20.1.0.48, )"
           },
           "Syncfusion.Xamarin.Pdf": {
             "target": "Package",
-            "version": "[20.1.0.47, )"
+            "version": "[20.1.0.48, )"
           },
           "Syncfusion.Xamarin.SfCalendar": {
             "target": "Package",
-            "version": "[20.1.0.47, )"
+            "version": "[20.1.0.48, )"
           },
           "Syncfusion.Xamarin.SfPdfViewer": {
             "target": "Package",
-            "version": "[20.1.0.47, )"
+            "version": "[20.1.0.48, )"
           },
           "Syncfusion.Xamarin.SfSchedule": {
             "target": "Package",
-            "version": "[20.1.0.47, )"
-          },
-          "System.Data.SQLite": {
-            "target": "Package",
-            "version": "[1.0.115.5, )"
+            "version": "[20.1.0.48, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",
-            "version": "[1.7.1, )"
+            "version": "[1.7.2, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
@@ -4158,6 +3920,11 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "frameworkReferences": {
+          "NETStandard.Library": {
+            "privateAssets": "all"
+          }
+        },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }

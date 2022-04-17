@@ -1,6 +1,4 @@
 ﻿using SQLite;
-using SQLiteNetExtensions.Attributes;
-using System.Collections.Generic;
 
 namespace Care_Taker.Models
 {
