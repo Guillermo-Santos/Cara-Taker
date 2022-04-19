@@ -18,17 +18,17 @@ namespace Care_Taker.Models
         public int CodUser { get; set; }
         public DateTime FecEntr { get; set; }
 
-        [OneToOne]
+        [OneToOne(CascadeOperations = CascadeOperation.All)]
         public Persona Persona { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Puesto_Empleado Puesto { get; set; }
-        [OneToOne]
+        [OneToOne(CascadeOperations = CascadeOperation.All)]
         public Usuario Usuario { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Cita> Citas { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Horario_Cita> Horario_Citas { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Empleado_Especialidad> Especialidades { get; set; }
     }
 }

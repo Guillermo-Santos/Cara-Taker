@@ -4,25 +4,24 @@
              xmlns:vm="clr-namespace:Care_Taker.ViewModels"
              x:Class="Care_Taker.Views.NewCitaPage"
              Title="{Binding Title}"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True">
 
     <ContentPage.BindingContext>
         <vm:NewCitaViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Entry Text="Paciente"/>
-            <Picker x:Name="PacientePicker" ItemsSource="{Binding Pacientes}" SelectedItem="{Binding SelectedPaciente,Mode=TwoWay}"/>
-            <Entry Text="Medico"/>
-            <Picker x:Name="EmpleadoPicker" ItemsSource="{Binding Medicos}" SelectedItem="{Binding SelectedEmpleado,Mode=TwoWay}"/>
+            <Label Text="Paciente"/>
+            <Picker x:Name="PacientePicker" Title="Paciente" ItemsSource="{Binding Pacientes}" ItemDisplayBinding="{Binding CodPaci}" SelectedItem="{Binding SelectedPaciente,Mode=TwoWay}"/>
+            <Label Text="Medico"/>
+            <Picker x:Name="EmpleadoPicker" Title="Medico" ItemsSource="{Binding Medicos}" ItemDisplayBinding="{Binding CodEmpl}" SelectedItem="{Binding SelectedEmpleado,Mode=TwoWay}"/>
             <Label Text="Tipo de cita"/>
-            <Picker x:Name="TipoCitaPicker" ItemsSource="{Binding Tipo_Citas}" SelectedItem="{Binding SelectedTipoCita,Mode=TwoWay}"/>
+            <Picker x:Name="TipoCitaPicker" Title="Tipo de cita" ItemsSource="{Binding Tipo_Citas}" ItemDisplayBinding="{Binding Descripcion}" SelectedItem="{Binding SelectedTipoCita,Mode=TwoWay}"/>
             <Label Text="Fecha"/>
-            <DatePicker/>
-            <Entry Placeholder="Duracion"/>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button Text="Guardar"/>
-                <Button Text="Limpiar"/>
+            <DatePicker MinimumDate="{Binding MinDate}"/>
+            <StackLayout HorizontalOptions="FillAndExpand" Padding="10">
+                <Button Text="Guardar" Command="{Binding OnSave}"/>
+                <Button Text="Limpiar" Command="{Binding OnClean}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

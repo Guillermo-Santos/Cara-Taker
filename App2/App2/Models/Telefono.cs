@@ -13,9 +13,9 @@ namespace Care_Taker.Models
         public string telefono { get; set; }
         public int CodTpTf { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Tipo_Telefono Tipo { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Telefono_Persona> Personas { get; set; }
     }
 }

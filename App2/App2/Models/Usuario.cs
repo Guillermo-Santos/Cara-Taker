@@ -15,7 +15,7 @@ namespace Care_Taker.Models
         [ForeignKey(typeof(Tipo_Usuario))]
         public int CodTpUs { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Tipo_Usuario Tipo_Usuario { get; set; }
     }
 }

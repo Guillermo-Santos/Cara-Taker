@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Care_Taker.Models;
 using Care_Taker.Services;
 using Care_Taker.Views;
+using System.Threading.Tasks;
 
 namespace Care_Taker.ViewModels
 {
@@ -37,7 +38,7 @@ namespace Care_Taker.ViewModels
         public SimpleAgendaViewModel()
         {
             Title = "Agenda";
-            FillData();
+            FillData().Wait();
             //CitasAppointments.Add(new CalendarInlineEvent());
             //CitasAppointments[0].StartTime = DateTime.Now;
             //CitasAppointments[0].EndTime = DateTime.Now.AddHours(2);
@@ -55,11 +56,11 @@ namespace Care_Taker.ViewModels
 
         public ICommand OnNewCitaButton_Click { get; }
 
-        async void FillData()
+        async Task FillData()
         {
 
             var Citas = await data.GetItemsAsync(AppData.Empleado.CodEmpl);
-            foreach (Cita cita in Citas)
+            foreach(Cita cita in Citas)
             {
                 CitasAppointments.Add(new CalendarInlineEvent()
                 {

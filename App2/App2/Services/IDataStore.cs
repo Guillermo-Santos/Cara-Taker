@@ -13,7 +13,7 @@ namespace Care_Taker.Services
         /// <returns></returns>
         Task<bool> AddItemAsync(T item)
         {
-            App.Connection.InsertAsync(item);
+            App.Connection.Insert(item);
             return Task.FromResult(true);
         }
         /// <summary>
@@ -23,7 +23,7 @@ namespace Care_Taker.Services
         /// <returns></returns>
         Task<bool> UpdateItemAsync(T item)
         {
-            App.Connection.UpdateAsync(item);
+            App.Connection.Update(item);
             return Task.FromResult(true);
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Care_Taker.Services
         /// <returns></returns>
         Task<bool> DeleteItemAsync(int id)
         {
-            App.Connection.DeleteAsync<T>(id);
+            App.Connection.Delete<T>(id);
             return Task.FromResult(true);
         }
         /// <summary>

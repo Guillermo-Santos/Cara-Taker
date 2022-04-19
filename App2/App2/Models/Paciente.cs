@@ -16,13 +16,13 @@ namespace Care_Taker.Models
         [ForeignKey(typeof(Usuario))]
         public int CodUser { get; set; }
 
-        [OneToOne]
+        [OneToOne(CascadeOperations = CascadeOperation.All)]
         public Persona Persona { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Tipo_Sangre TipoSangre { get; set; }
-        [OneToOne]
+        [OneToOne(CascadeOperations = CascadeOperation.All)]
         public Usuario Usuario { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Examen> examenes { get; set; }
     }
 }

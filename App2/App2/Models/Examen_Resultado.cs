@@ -6,14 +6,14 @@ namespace Care_Taker.Models
     [Table("Examenes_Resultado")]
     public class Examen_Resultado
     {
-        [ForeignKey(typeof(Cita))]
+        [PrimaryKey, ForeignKey(typeof(Cita))]
         public int CodCita { get; set; }
-        [ForeignKey(typeof(Examen))]
+        [PrimaryKey, ForeignKey(typeof(Examen))]
         public int CodExmn { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Examen Examen { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Cita Cita { get; set; }
     }
 }

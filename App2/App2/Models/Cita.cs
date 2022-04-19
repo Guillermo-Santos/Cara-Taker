@@ -20,16 +20,16 @@ namespace Care_Taker.Models
         public string Resultado { get; set; }
         public bool Status { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Paciente Paciente { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Empleado Empleado { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Tipo_Cita Tipo { get; set; }
 
-        [OneToMany]
-        public List<Examen_Resultado> Resultados { get; set; }
-        [OneToMany]
-        public List<Examen_Cita> examenes_Cita { get; set; }
+        //[OneToMany(CascadeOperations = CascadeOperation.All)]
+        //public List<Examen_Resultado> Resultados { get; set; }
+        //[OneToMany(CascadeOperations = CascadeOperation.All)]
+        //public List<Examen_Cita> examenes_Cita { get; set; }
     }
 }

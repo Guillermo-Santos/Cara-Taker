@@ -18,11 +18,11 @@ namespace Care_Taker.Models
         [ForeignKey(typeof(Tipo_Sexo))]
         public int CodSexo { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Tipo_Sexo TipoSexo { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Email> Emails { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Telefono_Persona> Telefonos { get; set; }
     }
 }

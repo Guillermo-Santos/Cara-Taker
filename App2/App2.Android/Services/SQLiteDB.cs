@@ -2,6 +2,7 @@
 using Care_Taker.Models;
 using Care_Taker.Services;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 //using Environment = System.Environment;
 using System.Collections.Generic;
 using System.IO;
@@ -17,47 +18,71 @@ namespace Care_Taker.Droid.Services
     public class SQLiteDB : ISQLiteDB
     {
 
-        SQLiteAsyncConnection ISQLiteDB.GetConnection()
+        SQLiteConnection ISQLiteDB.GetConnection()
         {
             //var documentsPath = Environment.DirectoryDocuments;
             var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
             var path = Path.Combine(documentsPath, "CareTaker.db3");
-            return new SQLiteAsyncConnection(path);
+            return new SQLiteConnection(path);
         }
 
-        async Task<bool> ISQLiteDB.CreateTables(SQLiteAsyncConnection connection)
+        async Task<bool> ISQLiteDB.CreateTables(SQLiteConnection connection)
         {
-            await connection.CreateTableAsync<Tipo_Cita>();
-            await connection.CreateTableAsync<Tipo_Sexo>();
-            await connection.CreateTableAsync<Tipo_Examen>();
-            await connection.CreateTableAsync<Tipo_Sangre>();
-            await connection.CreateTableAsync<Tipo_Telefono>();
-            await connection.CreateTableAsync<Tipo_Usuario>();
-            await connection.CreateTableAsync<Dia>();
-            await connection.CreateTableAsync<Consultorio>();
-            await connection.CreateTableAsync<Puesto_Empleado>();
-            await connection.CreateTableAsync<Especialidad>();
-            await connection.CreateTableAsync<Telefono>();
-            await connection.CreateTableAsync<Persona>();
-            await connection.CreateTableAsync<Telefono_Persona>();
-            await connection.CreateTableAsync<Email>();
-            await connection.CreateTableAsync<Usuario>();
-            await connection.CreateTableAsync<Empleado>();
-            await connection.CreateTableAsync<Paciente>();
-            await connection.CreateTableAsync<Turno>();
-            await connection.CreateTableAsync<Horario_Cita>();
-            await connection.CreateTableAsync<Empleado_Especialidad>();
-            await connection.CreateTableAsync<Cita_Especialidad>();
-            await connection.CreateTableAsync<Cita>();
-            //await connection.CreateTableAsync<Examen>();
-            //await connection.CreateTableAsync<Examen_Cita>();
-            //await connection.CreateTableAsync<Examen_Resultado>();
+
+            connection.DropTable<Tipo_Cita>();
+            connection.DropTable<Tipo_Sexo>();
+            connection.DropTable<Tipo_Examen>();
+            connection.DropTable<Tipo_Sangre>();
+            connection.DropTable<Tipo_Telefono>();
+            connection.DropTable<Tipo_Usuario>();
+            connection.DropTable<Dia>();
+            connection.DropTable<Consultorio>();
+            connection.DropTable<Puesto_Empleado>();
+            connection.DropTable<Especialidad>();
+            connection.DropTable<Telefono>();
+            connection.DropTable<Persona>();
+            connection.DropTable<Telefono_Persona>();
+            connection.DropTable<Email>();
+            connection.DropTable<Usuario>();
+            connection.DropTable<Empleado>();
+            connection.DropTable<Paciente>();
+            connection.DropTable<Turno>();
+            connection.DropTable<Empleado_Especialidad>();
+            connection.DropTable<Horario_Cita>();
+            connection.DropTable<Cita_Especialidad>();
+            connection.DropTable<Cita>();
+
+            connection.CreateTable<Tipo_Cita>();
+            connection.CreateTable<Tipo_Sexo>();
+            connection.CreateTable<Tipo_Examen>();
+            connection.CreateTable<Tipo_Sangre>();
+            connection.CreateTable<Tipo_Telefono>();
+            connection.CreateTable<Tipo_Usuario>();
+            connection.CreateTable<Dia>();
+            connection.CreateTable<Consultorio>();
+            connection.CreateTable<Puesto_Empleado>();
+            connection.CreateTable<Especialidad>();
+            connection.CreateTable<Telefono>();
+            connection.CreateTable<Persona>();
+            connection.CreateTable<Telefono_Persona>();
+            connection.CreateTable<Email>();
+            connection.CreateTable<Usuario>();
+            connection.CreateTable<Empleado>();
+            connection.CreateTable<Paciente>();
+            connection.CreateTable<Turno>();
+            connection.CreateTable<Horario_Cita>();
+            connection.CreateTable<Empleado_Especialidad>();
+            connection.CreateTable<Cita_Especialidad>();
+            connection.CreateTable<Cita>();
+            //connection.CreateTab<Examen>();
+            //connection.CreateTab<Examen_Cita>();
+            //connection.CreateTab<Examen_Resultado>();
 
             return await Task.FromResult(true);
         }
-        async Task<bool> ISQLiteDB.BaseData(SQLiteAsyncConnection connection)
+        async Task<bool> ISQLiteDB.BaseData(SQLiteConnection connection)
         {
-            if (connection.Table<Tipo_Cita>().CountAsync().Result <= 0)
+            if (connection.Table<Tipo_Cita>().Count() <= 0)
             {
                 List<Tipo_Cita> tipoCitas = new List<Tipo_Cita>
                 {
@@ -98,9 +123,9 @@ namespace Care_Taker.Droid.Services
                         Duracion = 30
                     }
                 };
-                await connection.InsertAllAsync(tipoCitas);
+                connection.InsertAll(tipoCitas);
             }
-            if (connection.Table<Tipo_Sangre>().CountAsync().Result <= 0)
+            if (connection.Table<Tipo_Sangre>().Count() <= 0)
             {
                 List<Tipo_Sangre> tipoSangre = new List<Tipo_Sangre>
                 {
@@ -146,9 +171,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(tipoSangre);
+                connection.InsertAll(tipoSangre);
             }
-            if (connection.Table<Tipo_Telefono>().CountAsync().Result <= 0)
+            if (connection.Table<Tipo_Telefono>().Count() <= 0)
             {
                 List<Tipo_Telefono> tipoTelefonos = new List<Tipo_Telefono>
                 {
@@ -169,9 +194,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(tipoTelefonos);
+                connection.InsertAll(tipoTelefonos);
             }
-            if (connection.Table<Tipo_Telefono>().CountAsync().Result <= 0)
+            if (connection.Table<Tipo_Telefono>().Count() <= 0)
             {
                 List<Tipo_Telefono> tipoTelefonos = new List<Tipo_Telefono>
                 {
@@ -192,9 +217,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(tipoTelefonos);
+                connection.InsertAll(tipoTelefonos);
             }
-            if (connection.Table<Tipo_Sexo>().CountAsync().Result <= 0)
+            if (connection.Table<Tipo_Sexo>().Count() <= 0)
             {
                 List<Tipo_Sexo> tipoSexo = new List<Tipo_Sexo>
                 {
@@ -210,9 +235,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(tipoSexo);
+                connection.InsertAll(tipoSexo);
             }
-            if (connection.Table<Dia>().CountAsync().Result <= 0)
+            if (connection.Table<Dia>().Count() <= 0)
             {
                 List<Dia> Dias = new List<Dia>
                 {
@@ -253,9 +278,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(Dias);
+                connection.InsertAll(Dias);
             }
-            if (connection.Table<Tipo_Usuario>().CountAsync().Result <= 0)
+            if (connection.Table<Tipo_Usuario>().Count() <= 0)
             {
                 List<Tipo_Usuario> tipoUsuario = new List<Tipo_Usuario>
                 {
@@ -271,9 +296,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(tipoUsuario);
+                connection.InsertAll(tipoUsuario);
             }
-            if (connection.Table<Consultorio>().CountAsync().Result <= 0)
+            if (connection.Table<Consultorio>().Count() <= 0)
             {
                 List<Consultorio> consultorios = new List<Consultorio>
                 {
@@ -294,9 +319,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(consultorios);
+                connection.InsertAll(consultorios);
             }
-            if (connection.Table<Puesto_Empleado>().CountAsync().Result <= 0)
+            if (connection.Table<Puesto_Empleado>().Count() <= 0)
             {
                 List<Puesto_Empleado> puestoEmpleados = new List<Puesto_Empleado>
                 {
@@ -327,9 +352,9 @@ namespace Care_Taker.Droid.Services
                     }
                 };
 
-                await connection.InsertAllAsync(puestoEmpleados);
+                connection.InsertAll(puestoEmpleados);
             }
-            if (connection.Table<Especialidad>().CountAsync().Result <= 0)
+            if (connection.Table<Especialidad>().Count() <= 0)
             {
                 List<Especialidad> Especialidades = new List<Especialidad>
                 {
@@ -364,9 +389,9 @@ namespace Care_Taker.Droid.Services
                         Descripcion = "Endocrinologia"
                     }
                 };
-                await connection.InsertAllAsync(Especialidades);
+                connection.InsertAll(Especialidades);
             }
-            if (connection.Table<Telefono>().CountAsync().Result <= 0)
+            if (connection.Table<Telefono>().Count() <= 0)
             {
                 List<Telefono> telefonos = new List<Telefono>
                 {
@@ -413,9 +438,9 @@ namespace Care_Taker.Droid.Services
                         CodTpTf = 2
                     }
                 };
-                await connection.InsertAllAsync(telefonos);
+                connection.InsertAll(telefonos);
             }
-            if (connection.Table<Persona>().CountAsync().Result <= 0)
+            if (connection.Table<Persona>().Count() <= 0)
             {
                 List<Persona> personas = new List<Persona>
                 {
@@ -468,9 +493,9 @@ namespace Care_Taker.Droid.Services
                         CodSexo = 1
                     }
                 };
-                await connection.InsertAllAsync(personas);
+                connection.InsertAll(personas);
             }
-            if (connection.Table<Telefono_Persona>().CountAsync().Result <= 0)
+            if (connection.Table<Telefono_Persona>().Count() <= 0)
             {
                 List<Telefono_Persona> telefonos_persona = new List<Telefono_Persona>
                 {
@@ -510,9 +535,9 @@ namespace Care_Taker.Droid.Services
                         CodTelf = 7
                     }
                 };
-                await connection.InsertAllAsync(telefonos_persona);
+                connection.InsertAll(telefonos_persona);
             }
-            if (connection.Table<Email>().CountAsync().Result <= 0)
+            if (connection.Table<Email>().Count() <= 0)
             {
                 List<Email> Emails = new List<Email>
                 {
@@ -553,9 +578,9 @@ namespace Care_Taker.Droid.Services
                         CodPers = 6
                     }
                 };
-                await connection.InsertAllAsync(Emails);
+                connection.InsertAll(Emails);
             }
-            if (connection.Table<Usuario>().CountAsync().Result <= 0)
+            if (connection.Table<Usuario>().Count() <= 0)
             {
                 List<Usuario> Usuarios = new List<Usuario>
                 {
@@ -602,9 +627,9 @@ namespace Care_Taker.Droid.Services
                         CodTpUs = 2
                     }
                 };
-                await connection.InsertAllAsync(Usuarios);
+                connection.InsertAll(Usuarios);
             }
-            if (connection.Table<Empleado>().CountAsync().Result <= 0)
+            if (connection.Table<Empleado>().Count() <= 0)
             {
                 List<Empleado> Empleados = new List<Empleado>
                 {
@@ -633,9 +658,9 @@ namespace Care_Taker.Droid.Services
                         FecEntr = new System.DateTime(2018, 9, 15)
                     }
                 };
-                await connection.InsertAllAsync(Empleados);
+                connection.InsertAll(Empleados);
             }
-            if (connection.Table<Paciente>().CountAsync().Result <= 0)
+            if (connection.Table<Paciente>().Count() <= 0)
             {
                 List<Paciente> Pacientes = new List<Paciente>
                 {
@@ -661,9 +686,9 @@ namespace Care_Taker.Droid.Services
                         CodUser = 6
                     }
                 };
-                await connection.InsertAllAsync(Pacientes);
+                connection.InsertAll(Pacientes);
             }
-            if (connection.Table<Turno>().CountAsync().Result <= 0)
+            if (connection.Table<Turno>().Count() <= 0)
             {
                 List<Turno> Turnos = new List<Turno>
                 {
@@ -780,9 +805,9 @@ namespace Care_Taker.Droid.Services
                         TimeOut = new System.DateTime(2000, 1, 2, 7, 0, 0)
                     }
                 };
-                await connection.InsertAllAsync(Turnos);
+                connection.InsertAll(Turnos);
             }
-            if (connection.Table<Horario_Cita>().CountAsync().Result <= 0)
+            if (connection.Table<Horario_Cita>().Count() <= 0)
             {
                 List<Horario_Cita> Horario_Citas = new List<Horario_Cita>
                 {
@@ -925,9 +950,9 @@ namespace Care_Taker.Droid.Services
                         CodTurn = 12,
                     }
                 };
-                await connection.InsertAllAsync(Horario_Citas);
+                connection.InsertAll(Horario_Citas);
             }
-            if (connection.Table<Empleado_Especialidad>().CountAsync().Result <= 0)
+            if (connection.Table<Empleado_Especialidad>().Count() <= 0)
             {
                 List<Empleado_Especialidad> Empleado_Especialidades = new List<Empleado_Especialidad>
                 {
@@ -967,9 +992,9 @@ namespace Care_Taker.Droid.Services
                         CodEspe = 2,
                     }
                 };
-                await connection.InsertAllAsync(Empleado_Especialidades);
+                connection.InsertAll(Empleado_Especialidades);
             }
-            if (connection.Table<Cita_Especialidad>().CountAsync().Result <= 0)
+            if (connection.Table<Cita_Especialidad>().Count() <= 0)
             {
                 List<Cita_Especialidad> Cita_Especialidades = new List<Cita_Especialidad>
                 {
@@ -1004,9 +1029,9 @@ namespace Care_Taker.Droid.Services
                         CodEspe = 6
                     }
                 };
-                await connection.InsertAllAsync(Cita_Especialidades);
+                connection.InsertAll(Cita_Especialidades);
             }
-            if (connection.Table<Tipo_Examen>().CountAsync().Result <= 0)
+            if (connection.Table<Tipo_Examen>().Count() <= 0)
             {
                 List<Tipo_Examen> Tipo_Examenes = new List<Tipo_Examen>
                 {
@@ -1066,9 +1091,8 @@ namespace Care_Taker.Droid.Services
                         Descripcion = "Marcadores cardiacos"
                     }
                 };
-                await connection.InsertAllAsync(Tipo_Examenes);
+                connection.InsertAll(Tipo_Examenes);
             }
-
             return await Task.FromResult(true);
         }
 

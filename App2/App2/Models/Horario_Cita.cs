@@ -6,18 +6,18 @@ namespace Care_Taker.Models
     [Table("Horario_Citas")]
     public class Horario_Cita
     {
-        [ForeignKey(typeof(Consultorio))]
+        [PrimaryKey, ForeignKey(typeof(Consultorio))]
         public int CodConsul { get; set; }
-        [ForeignKey(typeof(Empleado))]
+        [PrimaryKey, ForeignKey(typeof(Empleado))]
         public int CodEmpl { get; set; }
-        [ForeignKey(typeof(Turno))]
+        [PrimaryKey, ForeignKey(typeof(Turno))]
         public int CodTurn { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Consultorio Consultorio { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Empleado Empleado { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Turno Turno { get; set; }
     }
 }
