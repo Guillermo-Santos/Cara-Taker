@@ -31,6 +31,7 @@ namespace Care_Taker.Services
             var Citas = await GetItemsAsync(true);
             var cita = from cta in Citas where cta.CodEmpl == conditional select cta;
             return await Task.FromResult(cita);
+            //return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>(t => t.CodEmpl == conditional));
         }
     }
 }

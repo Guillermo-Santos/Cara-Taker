@@ -12,13 +12,29 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Paciente"/>
-            <Picker x:Name="PacientePicker" Title="Paciente" ItemsSource="{Binding Pacientes}" ItemDisplayBinding="{Binding CodPaci}" SelectedItem="{Binding SelectedPaciente,Mode=TwoWay}"/>
+            <Picker x:Name="PacientePicker" Title="Paciente" ItemsSource="{Binding Pacientes}" SelectedItem="{Binding SelectedPaciente,Mode=TwoWay}">
+                <Picker.ItemDisplayBinding>
+                    <MultiBinding  StringFormat="{}{0} {1}">
+                        <Binding Path="Persona.Nombre"/>
+                        <Binding Path="Persona.Apellidos"/>
+                    </MultiBinding>
+                </Picker.ItemDisplayBinding>
+            </Picker>
             <Label Text="Medico"/>
-            <Picker x:Name="EmpleadoPicker" Title="Medico" ItemsSource="{Binding Medicos}" ItemDisplayBinding="{Binding CodEmpl}" SelectedItem="{Binding SelectedEmpleado,Mode=TwoWay}"/>
+            <Picker x:Name="EmpleadoPicker" Title="Medico" ItemsSource="{Binding Medicos}" SelectedItem="{Binding SelectedEmpleado,Mode=TwoWay}">
+                <Picker.ItemDisplayBinding>
+                    <MultiBinding  StringFormat="{}{0} {1}">
+                        <Binding Path="Persona.Nombre"/>
+                        <Binding Path="Persona.Apellidos"/>
+                    </MultiBinding>
+                </Picker.ItemDisplayBinding>
+            </Picker>
             <Label Text="Tipo de cita"/>
             <Picker x:Name="TipoCitaPicker" Title="Tipo de cita" ItemsSource="{Binding Tipo_Citas}" ItemDisplayBinding="{Binding Descripcion}" SelectedItem="{Binding SelectedTipoCita,Mode=TwoWay}"/>
             <Label Text="Fecha"/>
             <DatePicker MinimumDate="{Binding MinDate}"/>
+            <Label Text="Fecha"/>
+            <TimePicker x:Name="timeP" Time="{Binding SelectedTime}"/>
             <StackLayout HorizontalOptions="FillAndExpand" Padding="10">
                 <Button Text="Guardar" Command="{Binding OnSave}"/>
                 <Button Text="Limpiar" Command="{Binding OnClean}"/>

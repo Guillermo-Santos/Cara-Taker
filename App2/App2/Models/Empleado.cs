@@ -24,11 +24,5 @@ namespace Care_Taker.Models
         public Puesto_Empleado Puesto { get; set; }
         [OneToOne(CascadeOperations = CascadeOperation.All)]
         public Usuario Usuario { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Cita> Citas { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Horario_Cita> Horario_Citas { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Empleado_Especialidad> Especialidades { get; set; }
     }
 }
