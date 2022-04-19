@@ -17,6 +17,7 @@ namespace Care_Taker.Models
         [ForeignKey(typeof(Tipo_Cita))]
         public int CodTpCt { get; set; }
         public DateTime Fecha { get; set; }
+        public TimeSpan Hora { get; set; }
         public string Resultado { get; set; }
         public bool Status { get; set; }
 

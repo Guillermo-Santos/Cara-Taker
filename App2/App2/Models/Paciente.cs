@@ -22,7 +22,5 @@ namespace Care_Taker.Models
         public Tipo_Sangre TipoSangre { get; set; }
         [OneToOne(CascadeOperations = CascadeOperation.All)]
         public Usuario Usuario { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Examen> examenes { get; set; }
     }
 }

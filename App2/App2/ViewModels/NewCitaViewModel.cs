@@ -12,6 +12,7 @@ using System.Diagnostics;
 
 namespace Care_Taker.ViewModels
 {
+ 
     public class NewCitaViewModel : BaseViewModel
     {
         readonly IDataStore<Cita> CitaDataStore = DependencyService.Get<IDataStore<Cita>>();
@@ -26,10 +27,10 @@ namespace Care_Taker.ViewModels
         private Empleado selectedEmpleado;
         private Tipo_Cita selectedTipoCita;
         private DateTime selectedDate;
+        private TimeSpan selectedTime;
         private DateTime minDate;
         public ICommand onSave;
         public ICommand onClean;
-
         public ObservableCollection<Paciente> Pacientes { 
             get => pacientes; 
             set => SetProperty(ref pacientes, value);
@@ -61,6 +62,11 @@ namespace Care_Taker.ViewModels
         {
             get => selectedDate;
             set => SetProperty(ref selectedDate, value);
+        }
+        public TimeSpan SelectedTime
+        {
+            get => selectedTime;
+            set => SetProperty(ref selectedTime, value);
         }
         public DateTime MinDate
         {
@@ -101,6 +107,7 @@ namespace Care_Taker.ViewModels
                     CodEmpl = SelectedEmpleado.CodEmpl,
                     CodTpCt = SelectedTipoCita.CodTpCt,
                     Fecha = SelectedDate,
+                    Hora = SelectedTime,
                     Status = true,
                     Paciente = selectedPaciente,
                     Empleado = SelectedEmpleado,
@@ -120,20 +127,24 @@ namespace Care_Taker.ViewModels
 
         public async Task DataRefresh()
         {
-            SelectedDate = DateTime.Now;
-            MinDate = DateTime.Now;
-            await LoadPacientes();
-            await LoadEmpleados();
-            await LoadTipoCitas();
 
-            if (AppData.Empleado != null && Medicos.Contains(AppData.Empleado))
+            MinDate = DateTime.Now;
+            SelectedDate = MinDate;
+            SelectedTime = MinDate.TimeOfDay;
+
+            if (AppData.Empleado != null)
             {
+                Medicos.Add(AppData.Empleado);
                 SelectedEmpleado = AppData.Empleado;
             }
             else
             {
+                await LoadEmpleados();
                 SelectedEmpleado = Medicos[0];
             }
+            
+            await LoadPacientes();
+            await LoadTipoCitas();
             SelectedTipoCita = Tipo_Citas[0];
             SelectedPaciente = Pacientes[0];
         }

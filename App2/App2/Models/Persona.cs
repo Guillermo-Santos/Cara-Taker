@@ -23,6 +23,6 @@ namespace Care_Taker.Models
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Email> Emails { get; set; }
         [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Telefono_Persona> Telefonos { get; set; }
+        public List<Telefono> Telefonos { get; set; }
     }
 }
