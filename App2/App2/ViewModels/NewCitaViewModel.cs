@@ -7,6 +7,8 @@ using Care_Taker.Models;
 using Care_Taker.Services;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Windows.Input;
+using System.Diagnostics;
 
 namespace Care_Taker.ViewModels
 {
@@ -23,7 +25,10 @@ namespace Care_Taker.ViewModels
         private Paciente selectedPaciente;
         private Empleado selectedEmpleado;
         private Tipo_Cita selectedTipoCita;
-
+        private DateTime selectedDate;
+        private DateTime minDate;
+        public ICommand onSave;
+        public ICommand onClean;
 
         public ObservableCollection<Paciente> Pacientes { 
             get => pacientes; 
@@ -52,52 +57,120 @@ namespace Care_Taker.ViewModels
             get => selectedTipoCita;
             set => SetProperty(ref selectedTipoCita, value);
         }
-
-
-        public NewCitaViewModel()
+        public DateTime SelectedDate
         {
-            DataRefresh();
+            get => selectedDate;
+            set => SetProperty(ref selectedDate, value);
+        }
+        public DateTime MinDate
+        {
+            get => minDate;
+            set => SetProperty(ref minDate, value);
         }
 
-        public void DataRefresh()
+        public ICommand OnSave
         {
-            LoadPacientes().Wait();
-            LoadEmpleados().Wait();
-            LoadTipoCitas().Wait();
+            get => onSave;
+            set => SetProperty(ref onSave, value);
+        }
+        public ICommand OnClean
+        {
+            get => onClean;
+            set => SetProperty(ref onClean, value);
+        }
+        public NewCitaViewModel()
+        {
+            Title = "Nueva cita";
+
+            MinDate = DateTime.Now;
+            DataRefresh().Wait();
+
+            OnSave = new Command(() => Save().Wait());
+            OnClean = new Command(() => DataRefresh().Wait());
+        }
+
+        public async Task Save()
+        {
+            IsBusy = true;
+
+            try
+            {
+                CitaDataStore.AddItemAsync(new Cita()
+                {
+                    CodPaci = SelectedPaciente.CodPaci,
+                    CodEmpl = SelectedEmpleado.CodEmpl,
+                    CodTpCt = SelectedTipoCita.CodTpCt,
+                    Fecha = SelectedDate,
+                    Status = true,
+                    Paciente = selectedPaciente,
+                    Empleado = SelectedEmpleado,
+                    Tipo = selectedTipoCita
+                }).Wait();
+                await DataRefresh();
+            }
+            catch (Exception ex)
+            {
+                await ViewService.DisplayAlert("Error",ex.Message,"Aceptar");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        public async Task DataRefresh()
+        {
+            SelectedDate = DateTime.Now;
+            MinDate = DateTime.Now;
+            await LoadPacientes();
+            await LoadEmpleados();
+            await LoadTipoCitas();
+
+            if (AppData.Empleado != null && Medicos.Contains(AppData.Empleado))
+            {
+                SelectedEmpleado = AppData.Empleado;
+            }
+            else
+            {
+                SelectedEmpleado = Medicos[0];
+            }
+            SelectedTipoCita = Tipo_Citas[0];
+            SelectedPaciente = Pacientes[0];
         }
 
         private async Task LoadPacientes()
         {
             var Pacientes = await PacientesDataStore.GetItemsAsync();
-            LoadCollectionsData<Paciente>(Pacientes.GetEnumerator(), ref this.pacientes);
+            LoadCollectionsData<Paciente>(ref Pacientes, ref this.pacientes);
         }
         private async Task LoadEmpleados()
         {
             var Medicos = await EmpleadosDataStore.GetItemsAsync();
-            LoadCollectionsData<Empleado>(Medicos.GetEnumerator(), ref this.medicos);
+            LoadCollectionsData<Empleado>(ref Medicos, ref this.medicos);
         }
         private async Task LoadTipoCitas()
         {
             var TipoCitas = await TipoCitasDataStore.GetItemsAsync();
-            LoadCollectionsData<Tipo_Cita>(TipoCitas.GetEnumerator(), ref this.tipo_Citas);
+            LoadCollectionsData<Tipo_Cita>(ref TipoCitas, ref this.tipo_Citas);
         }
 
+
+
         /// <summary>
-        /// Load an <see cref="IEnumerator{T}"/> to an <seealso cref="ObservableCollection{T}"/>
+        /// Load an <see cref="IEnumerable{T}"/> to an <seealso cref="ObservableCollection{T}"/>
         /// </summary>
-        /// <typeparam name="T">General type of the <see cref="IEnumerator{T}"/> and <seealso cref="ObservableCollection{T}"/></typeparam>
-        /// <param name="items"><see cref="IEnumerator{T}"/> to be passed</param>
+        /// <typeparam name="T">General type of the <see cref="IEnumerable{T}"/> and <seealso cref="ObservableCollection{T}"/></typeparam>
+        /// <param name="items"><see cref="IEnumerable{T}"/> to be passed</param>
         /// <param name="collection"><seealso cref="ObservableCollection{T}"/> that recieve the data</param>
-        void LoadCollectionsData<T>(IEnumerator<T> items, ref ObservableCollection<T> collection)
+        void LoadCollectionsData<T>(ref IEnumerable<T> items, ref ObservableCollection<T> collection)
         {
             ObservableCollection<T> newCollection = new ObservableCollection<T>();
-            if (items.Current == null)
-                items.MoveNext();
-            while (items.Current != null)
+
+            foreach(T item in items)
             {
-                newCollection.Add(items.Current);
-                items.MoveNext();
+                newCollection.Add(item);
             }
+
             SetProperty(ref collection, newCollection);
         }
 

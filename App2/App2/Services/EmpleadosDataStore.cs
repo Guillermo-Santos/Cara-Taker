@@ -10,12 +10,12 @@ namespace Care_Taker.Services
     {
         public Task<Empleado> GetItemAsync(int id)
         {
-            return Task.FromResult(App.Connection.Table<Empleado>().FirstOrDefaultAsync(t => t.CodEmpl == id).Result);
+            return Task.FromResult(App.Connection.Table<Empleado>().FirstOrDefault(t => t.CodEmpl == id));
         }
 
         public async Task<IEnumerable<Empleado>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(App.Connection.Table<Empleado>().ToListAsync().Result);
+            return await Task.FromResult(App.Connection.Table<Empleado>().ToList());
         }
 
         public Task<IEnumerable<Empleado>> GetItemsAsync(int conditional)

@@ -15,7 +15,7 @@ namespace Care_Taker.Services
 
         public async Task<IEnumerable<Paciente>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(App.Connection.Table<Paciente>().ToListAsync().Result);
+            return await Task.FromResult(App.Connection.Table<Paciente>().ToList());
         }
 
         public Task<IEnumerable<Paciente>> GetItemsAsync(int conditional)

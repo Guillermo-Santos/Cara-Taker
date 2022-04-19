@@ -16,7 +16,7 @@ namespace Care_Taker.Models
         public DateTime TimeIn { get; set; }
         public DateTime TimeOut { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Dia Dia { get; set; }
     }
 }

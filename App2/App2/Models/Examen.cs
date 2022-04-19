@@ -18,11 +18,11 @@ namespace Care_Taker.Models
         public string Documento { get; set; }
         public DateTime Fecha { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Paciente Paciente { get; set; }
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Tipo_Examen Tipo { get; set; }
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Examen_Resultado> resultado { get; set; }
     }
 }

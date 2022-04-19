@@ -10,11 +10,11 @@ namespace Care_Taker
 
         #region variables
 
-        private static SQLiteAsyncConnection connection;
+        private static SQLiteConnection connection;
         /// <summary>
         /// Static variable used to get the connection to the database.
         /// </summary>
-        public static SQLiteAsyncConnection Connection
+        public static SQLiteConnection Connection
         {
             get {
                 if(connection == null)
@@ -30,7 +30,7 @@ namespace Care_Taker
         public App()
         {
             InitializeComponent();
-
+            
             //DataStore dependency services
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<UsuariosDataStore>();

@@ -13,7 +13,7 @@ namespace Care_Taker.Models
         [ForeignKey(typeof(Persona))]
         public int CodPers { get; set; }
 
-        [ManyToOne]
+        [ManyToOne(CascadeOperations = CascadeOperation.All)]
         public Persona Persona { get; set; }
     }
 }

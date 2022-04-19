@@ -12,7 +12,7 @@ namespace Care_Taker.Models
         [MaxLength(100)]
         public string Descripcion { get; set; }
 
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Turno> Turnos { get; set; }
     }
 }
