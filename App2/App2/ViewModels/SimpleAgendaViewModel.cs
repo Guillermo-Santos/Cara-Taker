@@ -38,7 +38,6 @@ namespace Care_Taker.ViewModels
         public SimpleAgendaViewModel()
         {
             Title = "Agenda";
-            FillData().Wait();
             //CitasAppointments.Add(new CalendarInlineEvent());
             //CitasAppointments[0].StartTime = DateTime.Now;
             //CitasAppointments[0].EndTime = DateTime.Now.AddHours(2);
@@ -52,25 +51,37 @@ namespace Care_Taker.ViewModels
             //    i
             //});
             OnNewCitaButton_Click = new Command(async () => await ViewService.PushAsync(new NewCitaPage()));
+            LoadDataCommand = new Command(async () => await LoadData());
         }
 
+        public ICommand LoadDataCommand { get; }
         public ICommand OnNewCitaButton_Click { get; }
 
-        async Task FillData()
+        public void OnAppearing()
         {
+            IsBusy = true;
+        }
 
-            var Citas = await data.GetItemsAsync(AppData.Empleado.CodEmpl);
+        async Task LoadData()
+        {
+            IsBusy = true;
+            citasAppointments.Clear();
+            var Citas = await data.GetItems(AppData.Empleado.CodEmpl, true);
             foreach(Cita cita in Citas)
             {
+                if(cita.Fecha.Date < DateTime.Now && cita.Status)
+                {
+                    cita.Status = false;
+                    await data.UpdateItem(cita);
+                }
                 CitasAppointments.Add(new CalendarInlineEvent()
                 {
-                    StartTime = cita.Fecha,
-                    EndTime = (cita.Fecha).AddMinutes(cita.Tipo.Duracion),
-                    Subject = $"Cita con {cita.Paciente.Persona.Nombre} {cita.Paciente.Persona.Apellidos}"
+                    StartTime = cita.Fecha.Date.Add(cita.Hora),
+                    EndTime = cita.Fecha.Date.Add(cita.Hora).AddMinutes(cita.Tipo.Duracion),
+                    Subject = $"Cita {cita.Tipo.Descripcion} con {cita.Paciente.Persona.Nombre} {cita.Paciente.Persona.Apellidos}"
                 });
             }
-
-
+            IsBusy = false;
         }
 
     }

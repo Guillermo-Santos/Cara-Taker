@@ -1,9 +1,14 @@
-﻿
+﻿using SQLiteNetExtensions.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+
 namespace Care_Taker.Services
 {
+    /// <summary>
+    /// Interfaz para los servicios de manejo de datos de las tablas de la base de datos
+    /// </summary>
+    /// <typeparam name="T">Tipo/Modelo de la tabla de la base de datos</typeparam>
     public interface IDataStore<T>
     {
         /// <summary>
@@ -11,48 +16,57 @@ namespace Care_Taker.Services
         /// </summary>
         /// <param name="item">item of type T to be inserted</param>
         /// <returns></returns>
-        Task<bool> AddItemAsync(T item)
+        async Task<bool> AddItem(T item)
         {
             App.Connection.Insert(item);
-            return Task.FromResult(true);
+            await UpdateItem(item);
+            return await Task.FromResult(true);
         }
         /// <summary>
         /// Update an item of type <typeparamref name="T"/> on table of type <typeparamref name="T"/>
         /// </summary>
         /// <param name="item">item of type <typeparamref name="T"/> to be updated</param>
         /// <returns></returns>
-        Task<bool> UpdateItemAsync(T item)
+        async Task<bool> UpdateItem(T item)
         {
-            App.Connection.Update(item);
-            return Task.FromResult(true);
+            App.Connection.UpdateWithChildren(item);
+            return await Task.FromResult(true);
         }
         /// <summary>
         /// Delete an item of type <typeparamref name="T"/>
         /// </summary>
         /// <param name="id"> id of the item of type <typeparamref name="T"/> to be deleted</param>
         /// <returns></returns>
-        Task<bool> DeleteItemAsync(int id)
+        async Task<bool> DeleteItem(int id)
         {
             App.Connection.Delete<T>(id);
-            return Task.FromResult(true);
+            return await Task.FromResult(true);
         }
         /// <summary>
         /// get an item of type <typeparamref name="T"/> of table <typeparamref name="T"/>
         /// </summary>
         /// <param name="id">id of the item of type <typeparamref name="T"/> to be getted</param>
-        /// <returns></returns>
-        Task<T> GetItemAsync(int id);
+        /// <param name="Recursive"> used to indicate if you want to get the childrens of the chiildrens <typeparamref name="T"/></param>
+        /// <returns>
+        ///     An item of the designed table
+        /// </returns>
+        Task<T> GetItem(int id, bool Recursive = false);
         /// <summary>
         /// get an <see cref="IEnumerable{T}"/> of table <typeparamref name="T"/>
         /// </summary>
-        /// <param name="forceRefresh"> used to say if we will force a refres on data of table <typeparamref name="T"/></param>
-        /// <returns></returns>
-        Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        /// <param name="Recursive"> used to indicate if you want to get the childrens of the chiildrens <typeparamref name="T"/></param>
+        /// <returns>
+        ///     A list of items of the designed table
+        /// </returns>
+        Task<IEnumerable<T>> GetItems(bool Recursive = false);
         /// <summary>
         /// get an <see cref="IEnumerable{T}"/> of table <typeparamref name="T"/> if <paramref name="conditional"/> exist
         /// </summary>
         /// <param name="conditional"> conditional to get data <typeparamref name="T"/></param>
-        /// <returns></returns>
-        Task<IEnumerable<T>> GetItemsAsync(int conditional);
+        /// <param name="Recursive"> used to indicate if you want to get the childrens of the chiildrens <typeparamref name="T"/></param>
+        /// <returns>
+        ///     A list of items of the designed table
+        /// </returns>
+        Task<IEnumerable<T>> GetItems(int conditional, bool Recursive = false);
     }
 }

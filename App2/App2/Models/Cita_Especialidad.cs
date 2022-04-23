@@ -6,9 +6,11 @@ namespace Care_Taker.Models
     [Table("Cita_Especilidades")]
     public class Cita_Especialidad
     {
-        [PrimaryKey, ForeignKey(typeof(Tipo_Cita))]
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        [ForeignKey(typeof(Tipo_Cita))]
         public int CodTpCt { get; set; }
-        [PrimaryKey, ForeignKey(typeof(Especialidad))]
+        [ForeignKey(typeof(Especialidad))]
         public int CodEspe { get; set; }
 
         [ManyToOne(CascadeOperations = CascadeOperation.All)]

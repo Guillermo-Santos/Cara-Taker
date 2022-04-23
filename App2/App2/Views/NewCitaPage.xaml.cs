@@ -11,7 +11,7 @@ namespace Care_Taker.Views
     {
         public NewCitaPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             this.BindingContext = new NewCitaViewModel();
         }
     }

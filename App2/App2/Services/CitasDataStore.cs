@@ -8,30 +8,20 @@ namespace Care_Taker.Services
 {
     public class CitasDataStore : IDataStore<Cita>
     {
-        public Task<bool> AddItemAsync(Cita item)
+        public Task<Cita> GetItem(int id, bool Recursive = false)
         {
-            App.Connection.Insert(item);
-            App.Connection.UpdateWithChildren(item);
-            //App.Connection.InsertWithChildren(item, recursive: true);
-            return Task.FromResult(true);
-        }
-        public Task<Cita> GetItemAsync(int id)
-        {
-            return Task.FromResult(App.Connection.GetWithChildren<Cita>(id));
+            return Task.FromResult(App.Connection.GetWithChildren<Cita>(id, recursive: Recursive));
         }
         
-        public async Task<IEnumerable<Cita>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Cita>> GetItems(bool Recursive = false)
         {
-            return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>());
+            return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>(recursive: Recursive));
 
         }
 
-        public async Task<IEnumerable<Cita>> GetItemsAsync(int conditional)
+        public async Task<IEnumerable<Cita>> GetItems(int conditional, bool Recursive = false)
         {
-            var Citas = await GetItemsAsync(true);
-            var cita = from cta in Citas where cta.CodEmpl == conditional select cta;
-            return await Task.FromResult(cita);
-            //return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>(t => t.CodEmpl == conditional));
+            return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>(t => t.CodEmpl == conditional, recursive: Recursive));
         }
     }
 }

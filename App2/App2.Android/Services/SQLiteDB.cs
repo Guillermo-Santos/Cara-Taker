@@ -49,6 +49,7 @@ namespace Care_Taker.Droid.Services
             //connection.DropTable<Horario_Cita>();
             //connection.DropTable<Cita_Especialidad>();
             //connection.DropTable<Cita>();
+            //connection.DropTable<Examen_Cita>();
 
             connection.CreateTable<Tipo_Cita>();
             connection.CreateTable<Tipo_Sexo>();
@@ -71,9 +72,9 @@ namespace Care_Taker.Droid.Services
             connection.CreateTable<Empleado_Especialidad>();
             connection.CreateTable<Cita_Especialidad>();
             connection.CreateTable<Cita>();
-            //connection.CreateTab<Examen>();
-            //connection.CreateTab<Examen_Cita>();
-            //connection.CreateTab<Examen_Resultado>();
+            //connection.CreateTable<Examen>();
+            connection.CreateTable<Examen_Cita>();
+            //connection.CreateTable<Examen_Resultado>();
 
             return await Task.FromResult(true);
         }

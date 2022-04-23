@@ -6,6 +6,7 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:Care_Taker.ViewModels"
              xmlns:model="clr-namespace:Care_Taker.Models" 
+             xmlns:Converters="clr-namespace:Care_Taker.Common.Converters"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms" 
              Visual="Material">
 
@@ -16,29 +17,30 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
+            <Converters:CitaBGColorConverter x:Key="BGColorConverter"/>
         </ResourceDictionary>
-        
     </ContentPage.Resources>
-
-    <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="10">
-        <syncfusion:SfCalendar x:Name="calendar"
+    <RefreshView Command="{Binding LoadDataCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="10">
+            <syncfusion:SfCalendar x:Name="calendar"
                                DataSource="{Binding CitasAppointments}" 
                                InlineViewMode="Agenda"
                                ShowInlineEvents="True"
                                HeightRequest="650"
                                InlineItemTapped="calendar_InlineItemTapped">
-            <syncfusion:SfCalendar.MonthViewSettings>
-                <syncfusion:MonthViewSettings>
-                    <syncfusion:MonthViewSettings.InlineItemTemplate>
-                        <DataTemplate>
-                            <Button BackgroundColor="Purple" Text="{Binding Subject}" TextColor="White" />
-                        </DataTemplate>
-                    </syncfusion:MonthViewSettings.InlineItemTemplate>
-                </syncfusion:MonthViewSettings>
-            </syncfusion:SfCalendar.MonthViewSettings>
-        </syncfusion:SfCalendar>
-        <Button Text="Agendar una cita" Command="{Binding OnNewCitaButton_Click}"/>
-    </StackLayout>    
-
-
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings>
+                        <syncfusion:MonthViewSettings.InlineItemTemplate>
+                            <DataTemplate>
+                                <Button BackgroundColor="{Binding StartTime, Converter={StaticResource BGColorConverter}}" Text="{Binding Subject}" TextColor="White" />
+                            </DataTemplate>
+                        </syncfusion:MonthViewSettings.InlineItemTemplate>
+                    </syncfusion:MonthViewSettings>
+                </syncfusion:SfCalendar.MonthViewSettings>
+            </syncfusion:SfCalendar>
+            <Grid Padding="2">
+                <Button BackgroundColor="{StaticResource Primary}" Text="Agendar una cita" Command="{Binding OnNewCitaButton_Click}" />
+            </Grid>
+        </StackLayout>
+    </RefreshView> 
 </ContentPage>

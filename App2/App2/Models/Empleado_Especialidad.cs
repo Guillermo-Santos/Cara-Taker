@@ -6,9 +6,11 @@ namespace Care_Taker.Models
     [Table("Empleado_Especialidades")]
     public class Empleado_Especialidad
     {
-        [PrimaryKey, ForeignKey(typeof(Empleado))]
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        [ForeignKey(typeof(Empleado))]
         public int CodEmpl { get; set; }
-        [PrimaryKey, ForeignKey(typeof(Especialidad))]
+        [ForeignKey(typeof(Especialidad))]
         public int CodEspe { get; set; }
 
 
