@@ -7,7 +7,7 @@ using Care_Taker.Models;
 
 namespace Care_Taker.Common.Converters
 {
-    public class BoolSelectedExamnConverter : IValueConverter
+    public class FromNullToBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
