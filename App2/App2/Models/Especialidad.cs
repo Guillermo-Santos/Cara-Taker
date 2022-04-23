@@ -12,7 +12,5 @@ namespace Care_Taker.Models
         [MaxLength(100)]
         public string Descripcion { get; set; }
 
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<Cita_Especialidad> Citas_Especialidad { get; set; }
     }
 }

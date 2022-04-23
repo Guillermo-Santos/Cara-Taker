@@ -15,36 +15,53 @@ namespace Care_Taker.ViewModels
  
     public class NewCitaViewModel : BaseViewModel
     {
+        #region DataStores
         readonly IDataStore<Cita> CitaDataStore = DependencyService.Get<IDataStore<Cita>>();
         readonly IDataStore<Paciente> PacientesDataStore = DependencyService.Get<IDataStore<Paciente>>();
         readonly IDataStore<Empleado> EmpleadosDataStore = DependencyService.Get<IDataStore<Empleado>>();
         readonly IDataStore<Tipo_Cita> TipoCitasDataStore = DependencyService.Get<IDataStore<Tipo_Cita>>();
-
-        private ObservableCollection<Paciente> pacientes = new ObservableCollection<Paciente>();
-        private ObservableCollection<Empleado> medicos = new ObservableCollection<Empleado>();
-        private ObservableCollection<Tipo_Cita> tipo_Citas = new ObservableCollection<Tipo_Cita>();
+        readonly IDataStore<Examen_Cita> ExamenCitaDataStore = DependencyService.Get<IDataStore<Examen_Cita>>();
+        #endregion
+        #region Properties
+        private List<Paciente> pacientes = new List<Paciente>();
+        private List<Empleado> medicos = new List<Empleado>();
+        private List<Tipo_Cita> tipo_Citas = new List<Tipo_Cita>();
+        private List<Examen_Cita> examenes_Citas = new List<Examen_Cita>();
+        private List<Examen_Cita> examenes_Cita = new List<Examen_Cita>();
         private Paciente selectedPaciente;
         private Empleado selectedEmpleado;
         private Tipo_Cita selectedTipoCita;
+        private Examen_Cita selectedExamen;
         private DateTime selectedDate;
-        private TimeSpan selectedTime;
+        private TimeSpan selectedTime = TimeSpan.Zero;
         private DateTime minDate;
-        public ICommand onSave;
-        public ICommand onClean;
-        public ObservableCollection<Paciente> Pacientes { 
+        private ICommand onSave;
+        private ICommand onClean;
+        private ICommand onAdd;
+        #endregion
+        #region Fields
+        public List<Paciente> Pacientes { 
             get => pacientes; 
             set => SetProperty(ref pacientes, value);
             
         }
-        public ObservableCollection<Empleado> Medicos { 
+        public List<Empleado> Medicos { 
             get => medicos; 
             set => SetProperty(ref medicos, value); 
         }
-        public ObservableCollection<Tipo_Cita> Tipo_Citas { 
+        public List<Tipo_Cita> Tipo_Citas { 
             get => tipo_Citas; 
             set => SetProperty(ref tipo_Citas, value); 
         }
-
+        public List<Examen_Cita> Examenes_Citas { 
+            get => examenes_Citas;
+            set => SetProperty(ref examenes_Citas, value);
+        }
+        public List<Examen_Cita> Examenes_Cita
+        {
+            get => examenes_Cita;
+            set => SetProperty(ref examenes_Cita, value);
+        }
         public Paciente SelectedPaciente { 
             get => selectedPaciente;
             set => SetProperty(ref selectedPaciente, value);
@@ -57,6 +74,10 @@ namespace Care_Taker.ViewModels
         public Tipo_Cita SelectedTipoCita { 
             get => selectedTipoCita;
             set => SetProperty(ref selectedTipoCita, value);
+        }
+        public Examen_Cita SelectedExamen { 
+            get => selectedExamen;
+            set => SetProperty(ref selectedExamen, value);
         }
         public DateTime SelectedDate
         {
@@ -73,7 +94,6 @@ namespace Care_Taker.ViewModels
             get => minDate;
             set => SetProperty(ref minDate, value);
         }
-
         public ICommand OnSave
         {
             get => onSave;
@@ -84,47 +104,74 @@ namespace Care_Taker.ViewModels
             get => onClean;
             set => SetProperty(ref onClean, value);
         }
+        public ICommand OnAdd
+        {
+            get => onAdd;
+            set => SetProperty(ref onAdd, value);
+        }
+        #endregion
+
         public NewCitaViewModel()
         {
             Title = "Nueva cita";
 
-            MinDate = DateTime.Now;
             DataRefresh().Wait();
 
-            OnSave = new Command(() => Save().Wait());
-            OnClean = new Command(() => DataRefresh().Wait());
+            OnSave = new Command(async() => await Save());
+            OnClean = new Command(async() => await DataRefresh());
+            OnAdd = new Command(async () => await AddExamn());
         }
-
-        public async Task Save()
+        #region Methods
+        public async Task<bool> Save()
         {
-            IsBusy = true;
-
-            try
+            Cita cita = new Cita()
             {
-                CitaDataStore.AddItemAsync(new Cita()
-                {
-                    CodPaci = SelectedPaciente.CodPaci,
-                    CodEmpl = SelectedEmpleado.CodEmpl,
-                    CodTpCt = SelectedTipoCita.CodTpCt,
-                    Fecha = SelectedDate,
-                    Hora = SelectedTime,
-                    Status = true,
-                    Paciente = selectedPaciente,
-                    Empleado = SelectedEmpleado,
-                    Tipo = selectedTipoCita
-                }).Wait();
-                await DataRefresh();
-            }
-            catch (Exception ex)
-            {
-                await ViewService.DisplayAlert("Error",ex.Message,"Aceptar");
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+                CodPaci = SelectedPaciente.CodPaci,
+                CodEmpl = SelectedEmpleado.CodEmpl,
+                CodTpCt = SelectedTipoCita.CodTpCt,
+                Fecha = SelectedDate.Date,
+                Hora = SelectedTime,
+                Status = true,
+                Paciente = SelectedPaciente,
+                Empleado = SelectedEmpleado,
+                Tipo = selectedTipoCita
+            };
+            CitaDataStore.AddItem(cita).Wait();
+            await ClearData();
+            await ViewService.DisplayAlert("Cita agendada con exito", 
+                                           "Su cita con se agendo correctamente", 
+                                           "Aceptar");
+            return await Task.FromResult(true);
         }
-
+        public Task<bool> ClearData()
+        {
+            MinDate = DateTime.Now.Date;
+            SelectedTime = MinDate.TimeOfDay;
+            SelectedDate = DateTime.Now;
+            SelectedPaciente = null;
+            SelectedTipoCita = null;
+            SelectedExamen = null;
+            if (AppData.Empleado != null)
+            {
+                SelectedEmpleado = AppData.Empleado;
+            }
+            else
+            {
+                SelectedEmpleado = null;
+            }
+            LoadExamenesCitas().Wait();
+            return Task.FromResult(true);
+        }
+        public async Task<bool> AddExamn()
+        {
+            if(SelectedExamen != null)
+            {
+                examenes_Cita.Add(SelectedExamen);
+                examenes_Citas.Remove(SelectedExamen);
+                SelectedExamen = null;
+            }
+            return await Task.FromResult(true);
+        }
         public async Task DataRefresh()
         {
 
@@ -140,49 +187,51 @@ namespace Care_Taker.ViewModels
             else
             {
                 await LoadEmpleados();
-                SelectedEmpleado = Medicos[0];
             }
             
             await LoadPacientes();
             await LoadTipoCitas();
-            SelectedTipoCita = Tipo_Citas[0];
-            SelectedPaciente = Pacientes[0];
+            await LoadExamenesCitas();
         }
-
         private async Task LoadPacientes()
         {
-            var Pacientes = await PacientesDataStore.GetItemsAsync();
+            var Pacientes = await PacientesDataStore.GetItems();
             LoadCollectionsData<Paciente>(ref Pacientes, ref this.pacientes);
         }
         private async Task LoadEmpleados()
         {
-            var Medicos = await EmpleadosDataStore.GetItemsAsync();
+            var Medicos = await EmpleadosDataStore.GetItems();
             LoadCollectionsData<Empleado>(ref Medicos, ref this.medicos);
         }
         private async Task LoadTipoCitas()
         {
-            var TipoCitas = await TipoCitasDataStore.GetItemsAsync();
+            var TipoCitas = await TipoCitasDataStore.GetItems();
             LoadCollectionsData<Tipo_Cita>(ref TipoCitas, ref this.tipo_Citas);
         }
-
+        private async Task LoadExamenesCitas()
+        {
+            var ExamenesCitas = await ExamenCitaDataStore.GetItems();
+            LoadCollectionsData<Examen_Cita>(ref ExamenesCitas, ref examenes_Citas);
+        }
+        #endregion
 
 
         /// <summary>
-        /// Load an <see cref="IEnumerable{T}"/> to an <seealso cref="ObservableCollection{T}"/>
+        /// Load an <see cref="IEnumerable{T}"/> to a <seealso cref="List{T}"/>
         /// </summary>
         /// <typeparam name="T">General type of the <see cref="IEnumerable{T}"/> and <seealso cref="ObservableCollection{T}"/></typeparam>
         /// <param name="items"><see cref="IEnumerable{T}"/> to be passed</param>
-        /// <param name="collection"><seealso cref="ObservableCollection{T}"/> that recieve the data</param>
-        void LoadCollectionsData<T>(ref IEnumerable<T> items, ref ObservableCollection<T> collection)
+        /// <param name="list"><seealso cref="List{T}"/> that recieve the data</param>
+        void LoadCollectionsData<T>(ref IEnumerable<T> items, ref List<T> list)
         {
-            ObservableCollection<T> newCollection = new ObservableCollection<T>();
+            List<T> newList = new List<T>();
 
             foreach(T item in items)
             {
-                newCollection.Add(item);
+                newList.Add(item);
             }
 
-            SetProperty(ref collection, newCollection);
+            SetProperty(ref list, newList);
         }
 
     }

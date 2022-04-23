@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:Care_Taker.ViewModels"
+             xmlns:converters ="clr-namespace:Care_Taker.Common.Converters"
              x:Class="Care_Taker.Views.NewCitaPage"
              Title="{Binding Title}"
              Shell.NavBarIsVisible="True">
@@ -9,32 +10,45 @@
     <ContentPage.BindingContext>
         <vm:NewCitaViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FullNameConverter x:Key="fullName"/>
+            <converters:BoolSelectedExamnConverter x:Key="boolSelectEx"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Paciente"/>
-            <Picker x:Name="PacientePicker" Title="Paciente" ItemsSource="{Binding Pacientes}" SelectedItem="{Binding SelectedPaciente,Mode=TwoWay}">
-                <Picker.ItemDisplayBinding>
-                    <MultiBinding  StringFormat="{}{0} {1}">
-                        <Binding Path="Persona.Nombre"/>
-                        <Binding Path="Persona.Apellidos"/>
-                    </MultiBinding>
-                </Picker.ItemDisplayBinding>
-            </Picker>
-            <Label Text="Medico"/>
-            <Picker x:Name="EmpleadoPicker" Title="Medico" ItemsSource="{Binding Medicos}" SelectedItem="{Binding SelectedEmpleado,Mode=TwoWay}">
-                <Picker.ItemDisplayBinding>
-                    <MultiBinding  StringFormat="{}{0} {1}">
-                        <Binding Path="Persona.Nombre"/>
-                        <Binding Path="Persona.Apellidos"/>
-                    </MultiBinding>
-                </Picker.ItemDisplayBinding>
-            </Picker>
-            <Label Text="Tipo de cita"/>
+            <Picker x:Name="PacientePicker" Title="Paciente" ItemsSource="{Binding Pacientes}" ItemDisplayBinding="{Binding Persona, Converter={StaticResource fullName}}" SelectedItem="{Binding SelectedPaciente,Mode=TwoWay}" />
+            <Picker x:Name="EmpleadoPicker" Title="Medico" ItemsSource="{Binding Medicos}" ItemDisplayBinding="{Binding Persona, Converter={StaticResource fullName}}" SelectedItem="{Binding SelectedEmpleado,Mode=TwoWay}"/>
             <Picker x:Name="TipoCitaPicker" Title="Tipo de cita" ItemsSource="{Binding Tipo_Citas}" ItemDisplayBinding="{Binding Descripcion}" SelectedItem="{Binding SelectedTipoCita,Mode=TwoWay}"/>
             <Label Text="Fecha"/>
-            <DatePicker MinimumDate="{Binding MinDate}"/>
+            <DatePicker MinimumDate="{Binding MinDate}" Date="{Binding SelectedDate, Mode=TwoWay}"/>
             <Label Text="Fecha"/>
-            <TimePicker x:Name="timeP" Time="{Binding SelectedTime}"/>
+            <TimePicker x:Name="HoraDeCitaPicker" Time="{Binding SelectedTime, Mode=TwoWay}"/>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Picker x:Name="ExamenesCitaPicker" Title="Examenes" ItemsSource="{Binding Examenes_Citas}" ItemDisplayBinding="{Binding TipoExamen.Descripcion}" SelectedItem="{Binding SelectedExamen, Mode=TwoWay}"/>
+                <Button x:Name="AddExamn" Text="Agregar" Command="{Binding OnAdd}" IsEnabled="{Binding SelectedExamen, Converter={StaticResource boolSelectEx}}"/>
+            </StackLayout>
+            <ListView x:Name="citaDocuments" ItemsSource="{Binding Examenes_Cita }" SeparatorVisibility="None" SelectionMode="None" HasUnevenRows="False">
+                <ListView.Header>
+                    <Grid>
+                        <Label Margin="10,0,10,0" Text="Documentos" VerticalOptions="Center" FontSize="14" TextColor="White"/>
+                        <BoxView BackgroundColor="White" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="0" BorderColor="White">
+                                <Grid Padding="0" RowSpacing="0">
+                                    <Label Margin="10,0,10,0" Text="{Binding TipoExamen.Descripcion}" VerticalOptions="Center" FontSize="12"/>
+                                    <BoxView BackgroundColor="Turquoise" WidthRequest="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <StackLayout HorizontalOptions="FillAndExpand" Padding="10">
                 <Button Text="Guardar" Command="{Binding OnSave}"/>
                 <Button Text="Limpiar" Command="{Binding OnClean}"/>

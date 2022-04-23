@@ -21,14 +21,14 @@ namespace Care_Taker.Services
             };
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddItem(Item item)
         {
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateItem(Item item)
         {
             var oldItem = items.Where((arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(oldItem);
@@ -37,7 +37,7 @@ namespace Care_Taker.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(int id)
+        public async Task<bool> DeleteItem(int id)
         {
             var oldItem = items.Where((arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
@@ -45,17 +45,17 @@ namespace Care_Taker.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(int id)
+        public async Task<Item> GetItem(int id, bool Recursive = false)
         {
             return await Task.FromResult(items[0]);
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Item>> GetItems(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }
 
-        public Task<IEnumerable<Item>> GetItemsAsync(int conditional)
+        public Task<IEnumerable<Item>> GetItems(int conditional, bool Recursive = false)
         {
             throw new System.NotImplementedException();
         }
