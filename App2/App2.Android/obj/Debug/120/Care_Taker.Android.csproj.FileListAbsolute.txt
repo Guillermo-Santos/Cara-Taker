@@ -345,12 +345,7 @@ D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\De
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\android\assets\Xamarin.Google.Android.Material.dll
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\android\assets\Xamarin.Google.Android.Material.pdb
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\android\assets\Xamarin.Google.Guava.ListenableFuture.dll
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\jl\09bfd0af-411a-4e30-a351-206fb6720af5.jar
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_AndroidXJetifyJavaLibraryRules.stamp
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\08c2caed-5372-4c34-9b7b-ce6072534a68.txt
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\3fd01f1c-fd37-4772-b9e2-7029dc1b28c4.txt
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\7cab7586-1bc9-4e2c-933a-8374032191d5.txt
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\ab7f6f37-419b-4cb2-b174-5f3597d93182.cfg
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_AndroidXJetifyProguardRules.stamp
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\_AndroidXJetifyProguardRules.jetify
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_AndroidXCecilfy.stamp
@@ -978,3 +973,8 @@ D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\De
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\jl\83a211ca-ce7e-4a53-83c5-0c72c8697d8d.jar
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\3434534d-cc04-4de6-8b9f-5fbcd6c2fa2d.txt
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\7035488c-c06a-4e1d-b8c8-765dfcf765ab.txt
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\74e03459-7daa-43d7-a257-40595308f7c9.cfg
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\779ac83a-3bfa-411b-b8b1-a96fc76d0935.txt

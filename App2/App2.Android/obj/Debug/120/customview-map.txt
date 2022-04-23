@@ -34,12 +34,6 @@ corners;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Androi
 corners;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\6\jl\res\drawable\signaturepadroundedcorners.xml
 corners;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\6\jl\res\drawable\signaturepadtopcorner.xml
 corners;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\64\jl\res\drawable\materialprogressbar.xml
-crc643f46942d9dd1fff9.ShellFlyoutLayout;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\65\jl\res\layout\flyoutcontent.xml
-crc64720bb2db43a66fe9.FormsViewPager;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\65\jl\res\layout\rootlayout.xml
-crc647c4c06b10f3352ff.MaterialFormsEditText;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\64\jl\res\layout\textinputlayoutfilledbox.xml
-crc647c4c06b10f3352ff.MaterialFormsTextInputLayout;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\64\jl\res\layout\textinputlayoutfilledbox.xml
-crc647c4c06b10f3352ff.MaterialPickerEditText;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\64\jl\res\layout\materialpickertextinput.xml
-crc647c4c06b10f3352ff.MaterialPickerTextInputLayout;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\64\jl\res\layout\materialpickertextinput.xml
 declare-styleable;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\10\jl\res\values\attrs.xml
 declare-styleable;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\3\jl\res\values\attrs.xml
 declare-styleable;D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\lp\65\jl\res\values\attrs.xml
