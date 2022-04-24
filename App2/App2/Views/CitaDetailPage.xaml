@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels"
+             xmlns:converters="clr-namespace:Care_Taker.Common.Converters"
+             x:Class="Care_Taker.Views.CitaDetailPage"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="True"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <vm:CitaDetailViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FullNameConverter x:Key="fullName"/>
+            <converters:FromNullToBoolConverter x:Key="boolSelect"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RefreshView Command="{Binding LoadData}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <StackLayout>
+                <Entry Placeholder="Paciente" Text="{Binding Paciente.Persona,Converter={StaticResource fullName}}" FontSize="Body" IsReadOnly="True"/>
+                <Entry Placeholder="Medico" Text="{Binding Empleado.Persona, Converter={StaticResource fullName}}" FontSize="Body" IsReadOnly="True"/>
+                <Entry Placeholder="Tipo de cita" Text="{Binding Tipo.Descripcion}" FontSize="Body" IsReadOnly="True"/>
+                <Label Text="Fecha" FontSize="Medium"/>
+                <DatePicker Date="{Binding Fecha}" FontSize="Body" IsEnabled="False"/>
+                <Label Text="Hora" FontSize="Medium"/>
+                <TimePicker Time="{Binding Hora}" FontSize="Body" IsEnabled="False"/>
+                <Editor x:Name="results" Placeholder="Resultados" Text="{Binding Resultado}" MaxLength="250" AutoSize="TextChanges" IsReadOnly="True"/>
+                <ListView x:Name="citaDocuments" ItemsSource="{Binding Examenes}"  SelectionMode="None">
+                    <ListView.Header>
+                        <Label Margin="10,0,10,0" WidthRequest="270" Text="Documentos" VerticalOptions="Center" FontSize="Medium" TextColor="Black"/>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Margin="10,0,10,0" Text="{Binding TipoExamen.Descripcion }" VerticalOptions="CenterAndExpand" TextColor="Black"  FontSize="Body"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid  Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  HeightRequest="200">
+                    <Button Text="Editar" Command="{Binding OnEditClick}" IsEnabled="{Binding Status}" IsVisible="{Binding Editable}" WidthRequest="350"/>
+                </Grid>
+            </StackLayout>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

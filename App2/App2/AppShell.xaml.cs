@@ -10,13 +10,11 @@ namespace Care_Taker
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
+            Routing.RegisterRoute(nameof(CitaDetailPage), typeof(CitaDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(DocumentPage), typeof(DocumentPage));
-            Routing.RegisterRoute(nameof(CitaPage), typeof(CitaPage));
-            Routing.RegisterRoute(nameof(NewCitaPage), typeof(NewCitaPage));
             Routing.RegisterRoute(nameof(DetailedAgendaPage), typeof(DetailedAgendaPage));
             Routing.RegisterRoute(nameof(SimpleAgendaSettingsPage), typeof(SimpleAgendaSettingsPage));
-            //logout();
         }
 
         private void OnMenuItemClicked(object sender, EventArgs e)

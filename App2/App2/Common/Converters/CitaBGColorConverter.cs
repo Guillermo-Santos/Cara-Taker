@@ -15,13 +15,13 @@ namespace Care_Taker.Common.Converters
                 {
                     return Color.Green;
                 }
-                else if (startTime.Date < DateTime.Now.Date)
+                else if (startTime < DateTime.Now)
                 {
                     return Color.Red;
                 }
                 else
                 {
-                    return Color.Yellow;
+                    return Color.Turquoise;
                 }
             }
             return Color.White;

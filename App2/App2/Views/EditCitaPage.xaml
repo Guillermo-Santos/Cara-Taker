@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Care_Taker.Common.Converters"
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels"
+             x:Class="Care_Taker.Views.EditCitaPage"
+             Title="{Binding Title}"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <vm:EditCitaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FullNameConverter x:Key="fullName"/>
+            <converters:FromNullToBoolConverter x:Key="boolSelect"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RefreshView Command="{Binding LoadData}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <StackLayout>
+                <Entry Placeholder="Paciente" Text="{Binding Paciente.Persona,Converter={StaticResource fullName}}" FontSize="Body" IsReadOnly="True"/>
+                <Entry Placeholder="Medico" Text="{Binding Empleado.Persona, Converter={StaticResource fullName}}" FontSize="Body" IsReadOnly="True"/>
+                <Entry Placeholder="Tipo de cita" Text="{Binding Tipo.Descripcion}" FontSize="Body" IsReadOnly="True"/>
+                <Label Text="Fecha" FontSize="Medium"/>
+                <DatePicker Date="{Binding Fecha,Mode=TwoWay}" MinimumDate="{Binding MinDate}" FontSize="Body"/>
+                <Label Text="Hora" FontSize="Medium"/>
+                <TimePicker Time="{Binding Hora, Mode=TwoWay}" FontSize="Body"/>
+                <Editor x:Name="results" Placeholder="Resultados" Text="{Binding Resultado}" MaxLength="250" AutoSize="TextChanges"/>
+                <StackLayout Orientation="Horizontal">
+                    <Picker x:Name="ExamenesCitaPicker" MinimumWidthRequest="100" WidthRequest="270" Title="Examenes" ItemsSource="{Binding Tipo_Examenes, Mode=OneWay}" ItemDisplayBinding="{Binding Descripcion}" SelectedItem="{Binding SelectedTipoExamen, Mode=TwoWay}"/>
+                    <Button x:Name="AddExamn" Text="Agregar" Command="{Binding OnAdd}" IsEnabled="{Binding SelectedTipoExamen, Converter={StaticResource boolSelect}}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Margin="10,0,10,0" WidthRequest="270" Text="Documentos" VerticalOptions="Center" FontSize="Header" TextColor="Black"/>
+                    <Button x:Name="RemoveExamn" Text="Descartar" Command="{Binding OnRemove}" IsEnabled="{Binding SelectedExamen, Converter={StaticResource boolSelect}}"/>
+                </StackLayout>
+                <RefreshView IsRefreshing="{Binding Refresh, Mode=TwoWay}">
+                    <ListView x:Name="citaDocuments" ItemsSource="{Binding Examenes}" SelectedItem="{Binding SelectedExamen, Mode=TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Label Margin="10,0,10,0" Text="{Binding TipoExamen.Descripcion}" VerticalOptions="CenterAndExpand" TextColor="Black"  FontSize="Body"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </RefreshView>
+                <StackLayout Padding="3" Spacing="2">
+                    <Button x:Name="GuardarCita" Text="Guardar" BackgroundColor="Blue" Command="{Binding SaveData}"/>
+                    <Button x:Name="CitaCancel" Text="Cancelar cita" BackgroundColor="Red" Command="{Binding OnCancelCitaClick}"/>
+                </StackLayout>
+            </StackLayout>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections.ObjectModel;
-using Xamarin.Forms;
-using Care_Taker.Models;
+﻿using Care_Taker.Models;
 using Care_Taker.Services;
+using Care_Taker.ViewModels.Validations;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Collections;
 using System.Windows.Input;
-using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace Care_Taker.ViewModels
 {
- 
+
     public class NewCitaViewModel : BaseViewModel
     {
         #region DataStores
@@ -43,20 +41,24 @@ namespace Care_Taker.ViewModels
         private ICommand onRemove;
         #endregion
         #region Fields
-        public ObservableCollection<Paciente> Pacientes { 
-            get => pacientes; 
+        public ObservableCollection<Paciente> Pacientes
+        {
+            get => pacientes;
             set => SetProperty(ref pacientes, value);
-            
+
         }
-        public ObservableCollection<Empleado> Medicos { 
-            get => medicos; 
-            set => SetProperty(ref medicos, value); 
+        public ObservableCollection<Empleado> Medicos
+        {
+            get => medicos;
+            set => SetProperty(ref medicos, value);
         }
-        public ObservableCollection<Tipo_Cita> Tipo_Citas { 
-            get => tipo_Citas; 
-            set => SetProperty(ref tipo_Citas, value); 
+        public ObservableCollection<Tipo_Cita> Tipo_Citas
+        {
+            get => tipo_Citas;
+            set => SetProperty(ref tipo_Citas, value);
         }
-        public ObservableCollection<Tipo_Examen> Tipo_Examenes { 
+        public ObservableCollection<Tipo_Examen> Tipo_Examenes
+        {
             get => tipo_Examenes;
             set => SetProperty(ref tipo_Examenes, value);
         }
@@ -65,7 +67,8 @@ namespace Care_Taker.ViewModels
             get => examenes_Cita;
             set => SetProperty(ref examenes_Cita, value);
         }
-        public Paciente SelectedPaciente { 
+        public Paciente SelectedPaciente
+        {
             get => selectedPaciente;
             set => SetProperty(ref selectedPaciente, value);
         }
@@ -74,11 +77,13 @@ namespace Care_Taker.ViewModels
             get => selectedEmpleado;
             set => SetProperty(ref selectedEmpleado, value);
         }
-        public Tipo_Cita SelectedTipoCita { 
+        public Tipo_Cita SelectedTipoCita
+        {
             get => selectedTipoCita;
             set => SetProperty(ref selectedTipoCita, value);
         }
-        public Tipo_Examen SelectedExamen { 
+        public Tipo_Examen SelectedExamen
+        {
             get => selectedExamen;
             set => SetProperty(ref selectedExamen, value);
         }
@@ -130,32 +135,82 @@ namespace Care_Taker.ViewModels
 
             DataRefresh().Wait();
 
-            OnSave = new Command(async() => await Save());
-            OnClean = new Command(async() => await DataRefresh());
+            OnSave = new Command(async () => await Save());
+            OnClean = new Command(async () => await DataRefresh());
             OnAdd = new Command(() => AddExamn());
             OnRemove = new Command(() => RemoveExamn());
         }
         #region Methods
         public async Task<bool> Save()
         {
-            Cita cita = new Cita()
+            if (await Validate())
             {
-                CodPaci = SelectedPaciente.CodPaci,
-                CodEmpl = SelectedEmpleado.CodEmpl,
-                CodTpCt = SelectedTipoCita.CodTpCt,
-                Fecha = SelectedDate.Date,
-                Hora = SelectedTime,
-                Status = true,
-                Paciente = SelectedPaciente,
-                Empleado = SelectedEmpleado,
-                Tipo = selectedTipoCita
-            };
-            CitaDataStore.AddItem(cita).Wait();
-            await ClearData();
-            await ViewService.DisplayAlert("Cita agendada con exito", 
-                                           "Su cita con se agendo correctamente", 
-                                           "Aceptar");
+                Cita cita = new Cita()
+                {
+                    CodPaci = SelectedPaciente.CodPaci,
+                    CodEmpl = SelectedEmpleado.CodEmpl,
+                    CodTpCt = SelectedTipoCita.CodTpCt,
+                    Fecha = SelectedDate.Date,
+                    Hora = SelectedTime,
+                    Status = true,
+                    Paciente = SelectedPaciente,
+                    Empleado = SelectedEmpleado,
+                    Tipo = selectedTipoCita
+                };
+                if (CitaDataValidator.IsAvailable(cita, await CitaDataStore.GetItems(cita.CodEmpl)))
+                {
+                    if (!CitaDataValidator.IsTodayInPast(cita))
+                    {
+                        CitaDataStore.AddItem(cita).Wait();
+
+                        foreach (Tipo_Examen tipo in Examenes_Cita)
+                        {
+                            ExamenCitaDataStore.AddItem(new Examen_Cita
+                            {
+                                CodCita = cita.CodCita,
+                                CodTpEx = tipo.CodTpEx,
+                                TipoExamen = tipo,
+                                Cita = cita
+                            }).Wait();
+                        }
+                        await ClearData();
+                        await ViewService.DisplayAlert("Cita agendada con exito",
+                                                       "Su cita con se agendo correctamente",
+                                                       "Aceptar");
+                    }
+                    else
+                    {
+                        await ViewService.DisplayAlert("Atencion",
+                                                       "Introduce una hora valida.",
+                                                       "Aceptar");
+                    }
+                }
+                else
+                {
+                    await ViewService.DisplayAlert("Atencion",
+                                                   "El medico ya tiene esta fecha ocupada, favor elegir otra.",
+                                                   "Aceptar");
+                }
+            }
             return await Task.FromResult(true);
+        }
+
+        async Task<bool> Validate()
+        {
+            if(SelectedPaciente == null)
+            {
+                await ViewService.DisplayAlert("Alerta", "Por favor elegir un paciente", "ok");
+                return false;
+            }else if(SelectedEmpleado == null)
+            {
+                await ViewService.DisplayAlert("Alerta", "Por favor elegir un medico", "ok");
+                return false;
+            }else if(SelectedTipoCita == null)
+            {
+                await ViewService.DisplayAlert("Alerta", "Por favor elegir un tipo de cita", "ok");
+                return false; 
+            }
+            return true;
         }
         public Task<bool> ClearData()
         {
@@ -165,6 +220,7 @@ namespace Care_Taker.ViewModels
             SelectedPaciente = null;
             SelectedTipoCita = null;
             SelectedExamen = null;
+            Examenes_Cita.Clear();
             if (AppData.Empleado != null)
             {
                 SelectedEmpleado = AppData.Empleado;
@@ -173,10 +229,9 @@ namespace Care_Taker.ViewModels
             {
                 SelectedEmpleado = null;
             }
-            LoadExamenesCitas().Wait();
+            LoadTipoExamenes().Wait();
             return Task.FromResult(true);
         }
-        
         public Task<bool> AddExamn()
         {
             IsBusy = true;
@@ -197,6 +252,7 @@ namespace Care_Taker.ViewModels
             SelectedTipoExam = null;
 
             IsBusy = false;
+
             return Task.FromResult(true);
         }
         public async Task DataRefresh()
@@ -218,10 +274,10 @@ namespace Care_Taker.ViewModels
             {
                 await LoadEmpleados();
             }
-            
+
             await LoadPacientes();
             await LoadTipoCitas();
-            await LoadExamenesCitas();
+            await LoadTipoExamenes();
             IsBusy = false;
         }
         private async Task LoadPacientes()
@@ -239,31 +295,13 @@ namespace Care_Taker.ViewModels
             var TipoCitas = await TipoCitasDataStore.GetItems();
             LoadCollectionsData<Tipo_Cita>(ref TipoCitas, ref this.tipo_Citas);
         }
-        private async Task LoadExamenesCitas()
+        private async Task LoadTipoExamenes()
         {
             var ExamenesCitas = await TipoExamenesDataStore.GetItems();
             LoadCollectionsData<Tipo_Examen>(ref ExamenesCitas, ref this.tipo_Examenes);
         }
+
         #endregion
-
-
-        /// <summary>
-        /// Load an <see cref="IEnumerable{T}"/> to a <seealso cref="ObservableCollection{T}"/>
-        /// </summary>
-        /// <typeparam name="T">General type of the <see cref="IEnumerable{T}"/> and <seealso cref="ObservableCollection{T}"/></typeparam>
-        /// <param name="items"><see cref="IEnumerable{T}"/> to be passed</param>
-        /// <param name="list"><seealso cref="ObservableCollection{T}"/> that recieve the data</param>
-        void LoadCollectionsData<T>(ref IEnumerable<T> items, ref ObservableCollection<T> list)
-        {
-            ObservableCollection<T> newList = new ObservableCollection<T>();
-
-            foreach(T item in items)
-            {
-                newList.Add(item);
-            }
-
-            SetProperty(ref list, newList);
-        }
 
     }
 }

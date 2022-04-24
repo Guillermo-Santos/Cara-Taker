@@ -15,12 +15,10 @@ namespace Care_Taker.Views
             base.OnAppearing();
             ((SimpleAgendaViewModel)BindingContext).OnAppearing();
         }
-
-        private void calendar_InlineItemTapped(object sender, Syncfusion.SfCalendar.XForms.InlineItemTappedEventArgs e)
+        async void calendar_InlineItemTapped(object sender, Syncfusion.SfCalendar.XForms.InlineItemTappedEventArgs e)
         {
             var appointment = e.InlineEvent;
-            DisplayAlert(appointment.Subject, appointment.StartTime.TimeOfDay.ToString(@"hh\:mm") + " to " + appointment.EndTime.TimeOfDay.ToString(@"hh\:mm"), "ok");
-
+            await ((SimpleAgendaViewModel)BindingContext).ViewService.PushAsync(new CitaDetailPage(int.Parse(appointment.AutomationId)));
         }
     }
 }
