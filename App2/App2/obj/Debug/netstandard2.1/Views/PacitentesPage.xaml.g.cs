@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Care_Taker.Views.CitaPage.xaml", "Views/CitaPage.xaml", typeof(global::Care_Taker.Views.CitaPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Care_Taker.Views.PacitentesPage.xaml", "Views/PacitentesPage.xaml", typeof(global::Care_Taker.Views.PacitentesPage))]
 
 namespace Care_Taker.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\CitaPage.xaml")]
-    public partial class CitaPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\PacitentesPage.xaml")]
+    public partial class PacitentesPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CitaPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(PacitentesPage));
         }
     }
 }

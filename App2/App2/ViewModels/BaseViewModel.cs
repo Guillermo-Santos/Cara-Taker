@@ -2,6 +2,7 @@
 using Care_Taker.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
@@ -38,6 +39,21 @@ namespace Care_Taker.ViewModels
             onChanged?.Invoke();
             OnPropertyChanged(propertyName);
             return true;
+        }
+
+        /// <summary>
+        /// Load an <see cref="IEnumerable{T}"/> to a <seealso cref="ObservableCollection{T}"/>
+        /// </summary>
+        /// <typeparam name="T">General type of the <see cref="IEnumerable{T}"/> and <seealso cref="ObservableCollection{T}"/></typeparam>
+        /// <param name="items"><see cref="IEnumerable{T}"/> to be passed</param>
+        /// <param name="list"><seealso cref="ObservableCollection{T}"/> that recieve the data</param>
+        protected void LoadCollectionsData<T>(ref IEnumerable<T> items, ref ObservableCollection<T> list)
+        {
+            list.Clear();
+            foreach (T item in items)
+            {
+                list.Add(item);
+            }
         }
 
         #region INotifyPropertyChanged

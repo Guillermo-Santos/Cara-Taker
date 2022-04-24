@@ -5,7 +5,8 @@
              xmlns:converters ="clr-namespace:Care_Taker.Common.Converters"
              x:Class="Care_Taker.Views.NewCitaPage"
              Title="{Binding Title}"
-             Shell.NavBarIsVisible="True">
+             Shell.NavBarIsVisible="True"
+             Visual="Material">
 
     <ContentPage.BindingContext>
         <vm:NewCitaViewModel/>
@@ -31,7 +32,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Margin="10,0,10,0" WidthRequest="270" Text="Documentos" VerticalOptions="Center" FontSize="Header" TextColor="Black"/>
-                <Button Text="Descartar" IsEnabled="{Binding SelectedTipoExam, Converter={StaticResource boolSelect}}" Command="{Binding OnRemove}"/>
+                <Button x:Name="RemoveExamn" Text="Descartar" Command="{Binding OnRemove}" IsEnabled="{Binding SelectedTipoExam, Converter={StaticResource boolSelect}}"/>
             </StackLayout>
             <RefreshView x:Name="tableRefresher" IsRefreshing="{Binding IsBusy, Mode=OneWay}">
                 <ListView x:Name="citaDocuments" ItemsSource="{Binding Examenes_Cita}" SelectedItem="{Binding SelectedTipoExam, Mode=TwoWay}">

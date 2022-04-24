@@ -56,7 +56,6 @@ namespace Care_Taker.ViewModels
 
         public ICommand LoadDataCommand { get; }
         public ICommand OnNewCitaButton_Click { get; }
-
         public void OnAppearing()
         {
             IsBusy = true;
@@ -69,7 +68,7 @@ namespace Care_Taker.ViewModels
             var Citas = await data.GetItems(AppData.Empleado.CodEmpl, true);
             foreach(Cita cita in Citas)
             {
-                if(cita.Fecha.Date < DateTime.Now && cita.Status)
+                if((cita.Fecha.Date.Add(cita.Hora)) < DateTime.Now && cita.Status)
                 {
                     cita.Status = false;
                     await data.UpdateItem(cita);
@@ -78,7 +77,8 @@ namespace Care_Taker.ViewModels
                 {
                     StartTime = cita.Fecha.Date.Add(cita.Hora),
                     EndTime = cita.Fecha.Date.Add(cita.Hora).AddMinutes(cita.Tipo.Duracion),
-                    Subject = $"Cita {cita.Tipo.Descripcion} con {cita.Paciente.Persona.Nombre} {cita.Paciente.Persona.Apellidos}"
+                    Subject = $"Cita {cita.Tipo.Descripcion} con {cita.Paciente.Persona.Nombre} {cita.Paciente.Persona.Apellidos}",
+                    AutomationId=cita.CodCita.ToString()
                 });
             }
             IsBusy = false;

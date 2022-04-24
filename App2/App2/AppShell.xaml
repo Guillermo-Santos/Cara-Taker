@@ -91,12 +91,6 @@
     <FlyoutItem Title="Visor de documento" Icon="settings.ico">
         <ShellContent Route="DocumentPage" ContentTemplate="{DataTemplate local:DocumentPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Cita" Icon="settings.ico">
-        <ShellContent Route="CitaPage" ContentTemplate="{DataTemplate local:CitaPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="NewCita" Icon="settings.ico">
-        <ShellContent Route="NewCitaPage" ContentTemplate="{DataTemplate local:NewCitaPage}" />
-    </FlyoutItem>
     <FlyoutItem Title="Agenda" Icon="settings.ico">
         <ShellContent Route="DetailedAgendaPage" ContentTemplate="{DataTemplate local:DetailedAgendaPage}" />
     </FlyoutItem>

@@ -5,7 +5,6 @@ D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\nets
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Care_Taker.GeneratedMSBuildEditorConfig.editorconfig
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\App.xaml.g.cs
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\AppShell.xaml.g.cs
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\CitaPage.xaml.g.cs
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\DetailedAgendaPage.xaml.g.cs
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\DocumentPage.xaml.g.cs
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\ItemDetailPage.xaml.g.cs
@@ -24,3 +23,5 @@ D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\nets
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\refint\Care_Taker.dll
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Care_Taker.pdb
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\ref\Care_Taker.dll
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\CitaDetailPage.xaml.g.cs
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\EditCitaPage.xaml.g.cs
