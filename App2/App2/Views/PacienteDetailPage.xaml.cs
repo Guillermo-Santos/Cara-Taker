@@ -25,9 +25,9 @@ namespace Care_Taker.Views
             ((PacienteDetailViewModel)BindingContext).OnAppearing();
         }
 
-        private void citas_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void citas_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Application.Current.MainPage.Navigation.PushAsync(new CitaDetailPage(((Cita)citas.SelectedItem).CodCita));
+            await ((PacienteDetailViewModel)BindingContext).ViewService.PushAsync(new CitaDetailPage(((Cita)citas.SelectedItem).CodCita));
         }
     }
 }
