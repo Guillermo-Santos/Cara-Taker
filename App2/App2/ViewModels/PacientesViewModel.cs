@@ -39,10 +39,17 @@ namespace Care_Taker.ViewModels
             try
             {
                 Pacientes.Clear();
-                var pacientes = await PacienteDataStore.GetItems(true);
-                foreach (Paciente paciente in pacientes)
+                if(AppData.Paciente == null)
                 {
-                    Pacientes.Add(paciente);
+                    var pacientes = await PacienteDataStore.GetItems(true);
+                    foreach (Paciente paciente in pacientes)
+                    {
+                        Pacientes.Add(paciente);
+                    }
+                }
+                else
+                {
+                    Pacientes.Add(AppData.Paciente);
                 }
             }
             catch (Exception)

@@ -23,6 +23,7 @@ namespace Care_Taker.ViewModels
 
         private readonly IDataStore<Usuario> Da = DependencyService.Get<IDataStore<Usuario>>();
         private readonly IDataStore<Empleado> empleadosDataStore = DependencyService.Get<IDataStore<Empleado>>();
+        private readonly IDataStore<Paciente> PacienteDataStore = DependencyService.Get<IDataStore<Paciente>>();
         public Command LoginCommand { get; }
 
         public LoginViewModel()
@@ -48,8 +49,21 @@ namespace Care_Taker.ViewModels
                 if (empleado.Any()) { 
                     AppData.Empleado = empleado.FirstOrDefault();
                     ViewService.SetMainPage(new AppShell());
-                } else
-                    await ViewService.DisplayAlert("Falta de privilegios", "Este usuario no tiene acceso a esta app.", "Aceptar");
+                }
+                else
+                {
+                    var Pacientes = await PacienteDataStore.GetItems(true);
+                    var paciente = from paci in Pacientes where paci.CodUser == AppData.Usuario.CodUser select paci;
+                    if (paciente.Any()) {
+                        AppData.Paciente = paciente.FirstOrDefault();
+                        AppData.byPaci = true;
+                        ViewService.SetMainPage(new AppShell());
+                    }
+                    else
+                    {
+                        await ViewService.DisplayAlert("Falta de privilegios", "Este usuario no tiene acceso a esta app.", "Aceptar");
+                    }
+                }
             }
             else
             {

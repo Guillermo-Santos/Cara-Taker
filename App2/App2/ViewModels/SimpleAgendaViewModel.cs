@@ -62,7 +62,15 @@ namespace Care_Taker.ViewModels
         {
             IsBusy = true;
             citasAppointments.Clear();
-            var Citas = await data.GetItems(AppData.Empleado.CodEmpl, true);
+            IEnumerable<Cita> Citas;
+            if (AppData.Empleado != null)
+            {
+                Citas = await data.GetItems(AppData.Empleado.CodEmpl, true);
+            }
+            else
+            {
+                Citas = await data.GetItems(AppData.Paciente.CodPaci, true);
+            }
             foreach(Cita cita in Citas)
             {
                 if((cita.Fecha.Date.Add(cita.Hora)) < DateTime.Now && cita.Status)

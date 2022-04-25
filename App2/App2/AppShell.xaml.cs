@@ -24,6 +24,9 @@ namespace Care_Taker
 
         private void Exit()
         {
+            AppData.Empleado = null;
+            AppData.Paciente = null;
+            AppData.byPaci = false;
             Application.Current.MainPage = new LoginPage();
         }
     }
