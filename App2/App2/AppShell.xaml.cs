@@ -12,7 +12,7 @@ namespace Care_Taker
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(CitaDetailPage), typeof(CitaDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
-            Routing.RegisterRoute(nameof(DocumentPage), typeof(DocumentPage));
+            Routing.RegisterRoute(nameof(PacientesPage), typeof(PacientesPage));
             Routing.RegisterRoute(nameof(DetailedAgendaPage), typeof(DetailedAgendaPage));
             Routing.RegisterRoute(nameof(SimpleAgendaSettingsPage), typeof(SimpleAgendaSettingsPage));
         }

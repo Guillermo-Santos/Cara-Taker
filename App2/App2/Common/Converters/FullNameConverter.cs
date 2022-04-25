@@ -12,7 +12,10 @@ namespace Care_Taker.Common.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             Persona persona = (Persona)value;
-            return $"{persona.Nombre} {persona.Apellidos}";
+            if(persona != null)
+                return $"{persona.Nombre} {persona.Apellidos}";
+            else
+                return string.Empty;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

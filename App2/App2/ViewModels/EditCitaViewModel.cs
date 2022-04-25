@@ -152,11 +152,8 @@ namespace Care_Taker.ViewModels
         public ICommand OnCancelCitaClick { get; }
         public ICommand OnAdd { get; }
         public ICommand OnRemove { get; }
+
         #endregion
-        public void OnAppearing()
-        {
-            IsBusy = true;
-        }
 
         async Task LoadCitaData()
         {

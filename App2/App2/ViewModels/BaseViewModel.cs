@@ -40,7 +40,10 @@ namespace Care_Taker.ViewModels
             OnPropertyChanged(propertyName);
             return true;
         }
-
+        public void OnAppearing()
+        {
+            IsBusy = true;
+        }
         /// <summary>
         /// Load an <see cref="IEnumerable{T}"/> to a <seealso cref="ObservableCollection{T}"/>
         /// </summary>
@@ -66,6 +69,7 @@ namespace Care_Taker.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
         #endregion
     }
 }

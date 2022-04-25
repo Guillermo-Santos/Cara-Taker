@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels"
+             xmlns:converters="clr-namespace:Care_Taker.Common.Converters"
+             x:Class="Care_Taker.Views.PacientesPage"
+             Title="{Binding Title}"
+             Shell.TabBarIsVisible="True"
+             Visual="Material">
+    <ContentPage.BindingContext>
+        <vm:PacientesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FullNameConverter x:Key="FullName"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <RefreshView Command="{Binding LoadData}" IsRefreshing="{Binding IsBusy}">
+            <ListView ItemsSource="{Binding Pacientes}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="FillAndExpand" Spacing="3">
+                                    <Label Text="{Binding CodPaci}" 
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="16" 
+                                        VerticalTextAlignment="Center"/>
+                                    <Label x:Name="Nombre" Text="{Binding Persona,Converter={StaticResource FullName}}" 
+                                        LineBreakMode="NoWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="16" 
+                                        VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PacientesViewModel}}, Path=ItemSelected}"		
+                                        CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

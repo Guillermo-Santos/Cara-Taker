@@ -111,11 +111,6 @@ namespace Care_Taker.ViewModels
         public ICommand LoadData { get; }
         public ICommand OnEditClick { get; }
 
-        public void OnAppearing()
-        {
-            IsBusy = true;
-        }
-
         async Task LoadCitaData()
         {
             IsBusy = false;

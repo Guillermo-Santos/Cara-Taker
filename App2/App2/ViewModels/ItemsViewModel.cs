@@ -51,7 +51,7 @@ namespace Care_Taker.ViewModels
             }
         }
 
-        public void OnAppearing()
+        public new void OnAppearing()
         {
             IsBusy = true;
             SelectedItem = null;

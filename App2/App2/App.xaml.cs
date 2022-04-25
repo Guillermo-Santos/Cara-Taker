@@ -40,6 +40,8 @@ namespace Care_Taker
             DependencyService.Register<TipoCitasDataStore>();
             DependencyService.Register<TipoExamenesDataStore>();
             DependencyService.Register<ExamenesCitaDataStore>();
+            DependencyService.Register<TelefonosDataStore>();
+            DependencyService.Register<EmailsDataStore>();
             //Utility dependency services
             DependencyService.Register<ViewService>();
 

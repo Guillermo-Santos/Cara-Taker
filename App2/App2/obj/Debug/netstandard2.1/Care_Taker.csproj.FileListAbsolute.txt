@@ -25,3 +25,5 @@ D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\nets
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\ref\Care_Taker.dll
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\CitaDetailPage.xaml.g.cs
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\EditCitaPage.xaml.g.cs
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\PacienteDetailPage.xaml.g.cs
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2\obj\Debug\netstandard2.1\Views\PacientesPage.xaml.g.cs

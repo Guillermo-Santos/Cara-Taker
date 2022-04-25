@@ -9,5 +9,7 @@ namespace Care_Taker
     {
         public static Usuario Usuario;
         public static Empleado Empleado;
+        public static Paciente Paciente;
+        public static bool byPaci = false;
     }
 }
