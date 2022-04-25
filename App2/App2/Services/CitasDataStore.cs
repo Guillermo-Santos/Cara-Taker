@@ -21,7 +21,14 @@ namespace Care_Taker.Services
 
         public async Task<IEnumerable<Cita>> GetItems(int conditional, bool Recursive = false)
         {
-            return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>(t => t.CodEmpl == conditional, recursive: Recursive));
+            if (AppData.byPaci)
+            {
+                return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>(t => t.CodPaci == conditional, recursive: Recursive));
+            }
+            else
+            {
+                return await Task.FromResult(App.Connection.GetAllWithChildren<Cita>(t => t.CodEmpl == conditional, recursive: Recursive));
+            }
         }
     }
 }

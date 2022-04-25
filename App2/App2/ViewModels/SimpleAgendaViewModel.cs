@@ -56,10 +56,7 @@ namespace Care_Taker.ViewModels
 
         public ICommand LoadDataCommand { get; }
         public ICommand OnNewCitaButton_Click { get; }
-        public void OnAppearing()
-        {
-            IsBusy = true;
-        }
+
 
         async Task LoadData()
         {

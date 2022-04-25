@@ -82,20 +82,8 @@
     <FlyoutItem Title="Agenda" Icon="icon_schedule.ico">
         <ShellContent Route="SimpleAgendaPage" ContentTemplate="{DataTemplate local:SimpleAgendaPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Browse" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Configuracion" Icon="settings.ico">
-        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Visor de documento" Icon="settings.ico">
-        <ShellContent Route="DocumentPage" ContentTemplate="{DataTemplate local:DocumentPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Agenda" Icon="settings.ico">
-        <ShellContent Route="DetailedAgendaPage" ContentTemplate="{DataTemplate local:DetailedAgendaPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Simple confi Agenda" Icon="settings.ico">
-        <ShellContent Route="SimpleAgendaSettingsPage" ContentTemplate="{DataTemplate local:SimpleAgendaSettingsPage}" />
+    <FlyoutItem Title="Pacientes" Icon="icon_feed.png">
+        <ShellContent Route="PacientesPage" ContentTemplate="{DataTemplate local:PacientesPage}"/>
     </FlyoutItem>
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  x
     -->

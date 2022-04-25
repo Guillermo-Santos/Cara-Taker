@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Care_Taker.ViewModels" 
+             xmlns:converters="clr-namespace:Care_Taker.Common.Converters"
+             x:Class="Care_Taker.Views.PacienteDetailPage"
+             Title="{Binding Title}"
+             Shell.TabBarIsVisible="True">
+    <ContentPage.BindingContext>
+        <vm:PacienteDetailViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FullNameConverter x:Key="fullName"/>
+            <converters:FromNullToBoolConverter x:Key="boolSelect"/>
+            <converters:CitaPaciDetailConverter x:Key="citaDetail"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+            <StackLayout>
+                <Entry Placeholder="Paciente" Text="{Binding Persona,Converter={StaticResource fullName}}" FontSize="Body" IsReadOnly="True"/>
+                <Entry Placeholder="Tipo de sangre" Text="{Binding TipoSangre.Descripcion}" FontSize="Body" IsReadOnly="True"/>
+                <Label Text="Fecha de nacimiento" FontSize="Medium"/>
+            <DatePicker Date="{Binding Persona.FecNaci}" FontSize="Body" IsEnabled="False"/>
+            <RefreshView Command="{Binding LoadData}" IsRefreshing="{Binding IsBusy,Mode=TwoWay}">
+                <StackLayout>
+                    <ListView ItemsSource="{Binding Telefonos}">
+                        <ListView.Header>
+                            <Label Margin="10,0,10,0" WidthRequest="270" Text="Telefonos" VerticalOptions="Center" FontSize="Medium" TextColor="Black"/>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding telefono}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView ItemsSource="{Binding Emails}">
+                    <ListView.Header>
+                        <Label Margin="10,0,10,0" WidthRequest="270" Text="Emails" VerticalOptions="Center" FontSize="Medium" TextColor="Black"/>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding email}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView x:Name="citas" ItemsSource="{Binding Citas}" ItemTapped="citas_ItemTapped">
+                        <ListView.Header>
+                            <Label Margin="10,0,10,0" WidthRequest="270" Text="Citas" VerticalOptions="Center" FontSize="Medium" TextColor="Black"/>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding Empleado.Persona,Converter={StaticResource citaDetail}}"
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="16" />
+                                        <Label Text="{Binding Fecha}"
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="16" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

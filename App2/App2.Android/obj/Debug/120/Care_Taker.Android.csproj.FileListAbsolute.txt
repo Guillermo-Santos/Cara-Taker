@@ -87,8 +87,6 @@ D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\De
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\mipmap-xxxhdpi\launcher_foreground.png
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\drawable\xamarin_logo.png
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\drawable\icon_about.png
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\drawable\icon_feed.png
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\drawable\icon_settings.png
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\drawable\settings.ico
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\drawable\icon_schedule.ico
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\uploadflags.txt
@@ -973,8 +971,9 @@ D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\De
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\jl\aa8700be-48e8-4784-9d83-f8951e19aaf5.jar
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\13531589-d72d-4b72-af4d-c049df9f3599.txt
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\34bae904-cd11-48e6-9b08-8b6e2d8b57f7.txt
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\cc1e43dd-881a-4750-9522-c19d6bc2eac7.txt
-D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\f5be5b38-32ec-42f4-a5fe-da46a17e96c8.cfg
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\res\drawable\icon_feed.ico
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\jl\3fcf8b0c-6c01-4102-a632-842f03822f97.jar
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\263ec0e4-23e4-4747-8b33-5258ae114dd4.txt
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\7144faad-21fe-4ba5-87b6-f9052d60296d.txt
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\b987673a-f5ec-448d-940d-b632735244f3.cfg
+D:\Aplicaciones\Microsoft Visual Studio\VSProjects\App2\App2\App2.Android\obj\Debug\120\androidx\proguard\be27fd1b-1c29-4974-8abb-bf02bf08679d.txt

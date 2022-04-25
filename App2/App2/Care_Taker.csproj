@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Services\PacientesDataStore.cs~RF60e589c.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     <PackageReference Include="Syncfusion.Xamarin.Compression" Version="20.1.0.48" />
@@ -24,6 +20,9 @@
   <ItemGroup>
     <Compile Update="Views\CitaDetailPage.xaml.cs">
       <DependentUpon>CitaDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PacientesPage.xaml.cs">
+      <DependentUpon>PacientesPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SimpleAgendaPage.xaml.cs">
       <DependentUpon>SimpleAgendaPage.xaml</DependentUpon>
@@ -46,7 +45,10 @@
     <EmbeddedResource Update="Views\NewCitaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PacitentesPage.xaml">
+    <EmbeddedResource Update="Views\PacienteDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PacientesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SettingsPage.xaml">

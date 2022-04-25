@@ -120,16 +120,13 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
     <AndroidResource Include="Resources\drawable\icon_about.png" />
-    <AndroidResource Include="Resources\drawable\icon_feed.png" />
+    <AndroidResource Include="Resources\drawable\icon_feed.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App2\Care_Taker.csproj">
       <Project>{6C28DEA5-1BF6-458E-843B-634F4D707CA2}</Project>
       <Name>Care_Taker</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon_settings.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\settings.ico" />
