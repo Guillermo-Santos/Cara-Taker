@@ -95,7 +95,7 @@ namespace Care_Taker.ViewModels
         {
             get
             {
-                return (AppData.Empleado != null);
+                return (AppData.Paciente == null);
             }
         }
 
@@ -131,6 +131,11 @@ namespace Care_Taker.ViewModels
                     Tipo = cita.Tipo;
                     var Examenes = await ExamenCitaDataStore.GetItems(CodCita, true);
                     LoadCollectionsData<Examen_Cita>(ref Examenes, ref examenes);
+
+                    if (AppData.Paciente != null)
+                    {
+                        Status = false;
+                    }
                 }
                 else
                 {

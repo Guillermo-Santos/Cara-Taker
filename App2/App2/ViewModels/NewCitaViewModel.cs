@@ -217,7 +217,6 @@ namespace Care_Taker.ViewModels
             MinDate = DateTime.Now.Date;
             SelectedTime = MinDate.TimeOfDay;
             SelectedDate = DateTime.Now;
-            SelectedPaciente = null;
             SelectedTipoCita = null;
             SelectedExamen = null;
             Examenes_Cita.Clear();
@@ -228,6 +227,14 @@ namespace Care_Taker.ViewModels
             else
             {
                 SelectedEmpleado = null;
+            }
+            if (AppData.Paciente != null)
+            {
+                SelectedPaciente = AppData.Paciente;
+            }
+            else
+            {
+                SelectedPaciente = null;
             }
             LoadTipoExamenes().Wait();
             return Task.FromResult(true);
@@ -274,8 +281,15 @@ namespace Care_Taker.ViewModels
             {
                 await LoadEmpleados();
             }
-
-            await LoadPacientes();
+            if (AppData.Paciente != null)
+            {
+                Pacientes.Add(AppData.Paciente);
+                SelectedPaciente = AppData.Paciente;
+            }
+            else
+            {
+                await LoadPacientes();
+            }
             await LoadTipoCitas();
             await LoadTipoExamenes();
             IsBusy = false;
